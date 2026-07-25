@@ -189,19 +189,61 @@ img{max-width:100%;display:block;}
 }
 
 .card__body{padding:2.2rem 1.6rem 1.8rem;position:relative;flex:1;display:flex;flex-direction:column;}
-.card__medallion{
-  position:absolute;top:-42px;right:1.4rem;width:84px;height:84px;
-  display:flex;align-items:center;justify-content:center;
-}
-.medallion-ring{position:absolute;inset:0;width:100%;height:100%;}
-.medallion-ring circle{fill:none;stroke:var(--gold);}
-.medallion-ring circle:first-child{stroke-width:1.4;fill:var(--bg);}
-.medallion-ring circle:last-child{stroke-width:.7;opacity:.7;}
-.medallion-price{position:relative;z-index:1;text-align:center;font-family:var(--sans-ui);color:var(--gold-soft);}
-.price-val{display:block;font-size:.92rem;font-weight:600;letter-spacing:.01em;}
-.price-val--multi{font-size:.56rem;line-height:1.35;letter-spacing:.02em;padding:0 6px;font-weight:500;}
 
-.card__title{font-size:1.28rem;color:var(--ink);margin:1.6rem 0 1rem;padding-right:70px;}
+/* ---------- MEDALLION (PRICE BADGE) — FIXED ---------- */
+.card__medallion{
+  position:absolute;
+  top:-46px;
+  right:1.2rem;
+  width:92px;
+  height:92px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.medallion-ring{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+}
+.medallion-ring circle{fill:none;stroke:var(--gold);}
+.medallion-ring circle:first-child{stroke-width:1.6;fill:var(--bg);}
+.medallion-ring circle:last-child{stroke-width:.8;opacity:.65;}
+.medallion-price{
+  position:relative;
+  z-index:1;
+  text-align:center;
+  font-family:var(--sans-ui);
+  color:var(--gold-soft);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:76px;
+  padding:0 4px;
+}
+.price-val{
+  display:block;
+  font-size:.88rem;
+  font-weight:600;
+  letter-spacing:.01em;
+  line-height:1.2;
+}
+/* Preços duplos (ex: "23cm — R$ 420" · "30cm — R$ 630") */
+.price-val--multi{
+  font-size:.62rem;
+  line-height:1.4;
+  letter-spacing:.01em;
+  font-weight:500;
+  text-align:center;
+}
+
+.card__title{
+  font-size:1.28rem;
+  color:var(--ink);
+  margin:1.4rem 0 1rem;
+  padding-right:76px; /* espaço para o medalhão */
+}
 .card__specs{margin-bottom:1.5rem;flex:1;}
 .card__specs li{
   position:relative;padding-left:1.1rem;margin-bottom:.55rem;
@@ -259,7 +301,12 @@ img{max-width:100%;display:block;}
   body{font-size:16.5px;}
   .hero{padding-top:5.5rem;}
   .card__title{padding-right:0;}
-  .card__medallion{position:static;margin-bottom:1rem;width:72px;height:72px;}
+  .card__medallion{
+    position:static;
+    margin:0 0 .8rem 0;
+    width:80px;height:80px;
+    align-self:flex-start;
+  }
 }
 
 @media (prefers-reduced-motion: reduce){
@@ -291,41 +338,13 @@ img{max-width:100%;display:block;}
 </header>
 
 <section class="hero">
-  <div class="hero__ornament hero__ornament--tl" aria-hidden="true"><svg viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M4 4 Q4 40 40 40" stroke="currentColor" stroke-width="1"/>
-<path d="M4 4 Q40 4 40 40" stroke="currentColor" stroke-width="1"/>
-<circle cx="4" cy="4" r="2.4" fill="currentColor"/>
-<path d="M14 4c8 2 12 8 10 16-2 6-9 8-13 3" stroke="currentColor" stroke-width="1"/>
-<path d="M4 14c2 8 8 12 16 10 6-2 8-9 3-13" stroke="currentColor" stroke-width="1"/>
-<circle cx="40" cy="40" r="1.6" fill="currentColor"/>
-</svg></div>
-  <div class="hero__ornament hero__ornament--tr" aria-hidden="true"><svg viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M4 4 Q4 40 40 40" stroke="currentColor" stroke-width="1"/>
-<path d="M4 4 Q40 4 40 40" stroke="currentColor" stroke-width="1"/>
-<circle cx="4" cy="4" r="2.4" fill="currentColor"/>
-<path d="M14 4c8 2 12 8 10 16-2 6-9 8-13 3" stroke="currentColor" stroke-width="1"/>
-<path d="M4 14c2 8 8 12 16 10 6-2 8-9 3-13" stroke="currentColor" stroke-width="1"/>
-<circle cx="40" cy="40" r="1.6" fill="currentColor"/>
-</svg></div>
-  <div class="hero__ornament hero__ornament--bl" aria-hidden="true"><svg viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M4 4 Q4 40 40 40" stroke="currentColor" stroke-width="1"/>
-<path d="M4 4 Q40 4 40 40" stroke="currentColor" stroke-width="1"/>
-<circle cx="4" cy="4" r="2.4" fill="currentColor"/>
-<path d="M14 4c8 2 12 8 10 16-2 6-9 8-13 3" stroke="currentColor" stroke-width="1"/>
-<path d="M4 14c2 8 8 12 16 10 6-2 8-9 3-13" stroke="currentColor" stroke-width="1"/>
-<circle cx="40" cy="40" r="1.6" fill="currentColor"/>
-</svg></div>
-  <div class="hero__ornament hero__ornament--br" aria-hidden="true"><svg viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M4 4 Q4 40 40 40" stroke="currentColor" stroke-width="1"/>
-<path d="M4 4 Q40 4 40 40" stroke="currentColor" stroke-width="1"/>
-<circle cx="4" cy="4" r="2.4" fill="currentColor"/>
-<path d="M14 4c8 2 12 8 10 16-2 6-9 8-13 3" stroke="currentColor" stroke-width="1"/>
-<path d="M4 14c2 8 8 12 16 10 6-2 8-9 3-13" stroke="currentColor" stroke-width="1"/>
-<circle cx="40" cy="40" r="1.6" fill="currentColor"/>
-</svg></div>
+  <div class="hero__ornament hero__ornament--tl" aria-hidden="true"><svg viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 4 Q4 40 40 40" stroke="currentColor" stroke-width="1"/><path d="M4 4 Q40 4 40 40" stroke="currentColor" stroke-width="1"/><circle cx="4" cy="4" r="2.4" fill="currentColor"/><path d="M14 4c8 2 12 8 10 16-2 6-9 8-13 3" stroke="currentColor" stroke-width="1"/><path d="M4 14c2 8 8 12 16 10 6-2 8-9 3-13" stroke="currentColor" stroke-width="1"/><circle cx="40" cy="40" r="1.6" fill="currentColor"/></svg></div>
+  <div class="hero__ornament hero__ornament--tr" aria-hidden="true"><svg viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 4 Q4 40 40 40" stroke="currentColor" stroke-width="1"/><path d="M4 4 Q40 4 40 40" stroke="currentColor" stroke-width="1"/><circle cx="4" cy="4" r="2.4" fill="currentColor"/><path d="M14 4c8 2 12 8 10 16-2 6-9 8-13 3" stroke="currentColor" stroke-width="1"/><path d="M4 14c2 8 8 12 16 10 6-2 8-9 3-13" stroke="currentColor" stroke-width="1"/><circle cx="40" cy="40" r="1.6" fill="currentColor"/></svg></div>
+  <div class="hero__ornament hero__ornament--bl" aria-hidden="true"><svg viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 4 Q4 40 40 40" stroke="currentColor" stroke-width="1"/><path d="M4 4 Q40 4 40 40" stroke="currentColor" stroke-width="1"/><circle cx="4" cy="4" r="2.4" fill="currentColor"/><path d="M14 4c8 2 12 8 10 16-2 6-9 8-13 3" stroke="currentColor" stroke-width="1"/><path d="M4 14c2 8 8 12 16 10 6-2 8-9 3-13" stroke="currentColor" stroke-width="1"/><circle cx="40" cy="40" r="1.6" fill="currentColor"/></svg></div>
+  <div class="hero__ornament hero__ornament--br" aria-hidden="true"><svg viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 4 Q4 40 40 40" stroke="currentColor" stroke-width="1"/><path d="M4 4 Q40 4 40 40" stroke="currentColor" stroke-width="1"/><circle cx="4" cy="4" r="2.4" fill="currentColor"/><path d="M14 4c8 2 12 8 10 16-2 6-9 8-13 3" stroke="currentColor" stroke-width="1"/><path d="M4 14c2 8 8 12 16 10 6-2 8-9 3-13" stroke="currentColor" stroke-width="1"/><circle cx="40" cy="40" r="1.6" fill="currentColor"/></svg></div>
 
   <div class="hero__content">
-    <img src="assets/img/logo-mark.jpg" alt="Símbolo do Ateliê Jaine Schaper — tridente e rosas" class="hero__mark">
+    <img src="assets/img/logo-mark.png" alt="Símbolo do Ateliê Jaine Schaper — tridente e rosas" class="hero__mark">
     <p class="hero__eyebrow">Arte ritual autoral desde 2023</p>
     <h1 class="hero__title">Ossos e ferramentas<br>para Exu &amp; Pombogira</h1>
     <p class="hero__styles">Rococó <span>•</span> Barroco <span>•</span> Vitoriano</p>
@@ -357,6 +376,7 @@ img{max-width:100%;display:block;}
 
 <main>
 
+  <!-- ===== LÂMINAS RITUAIS ===== -->
   <section class="category" id="cat-laminas">
     <div class="category__head">
       <span class="eyebrow">Coleção</span>
@@ -364,127 +384,171 @@ img{max-width:100%;display:block;}
       <p>Punhais, adagas, facas e navalhas — aço afiado, cabo esculpido à mão.</p>
     </div>
     <div class="card-grid">
-    <article class="card" id="p-punhal-22">
-      <div class="card__gallery card__gallery--double"><img src="assets/img/punhal-22-1.jpg" alt="Punhal Ritual 22cm" loading="lazy"><img src="assets/img/punhal-22-2.jpg" alt="Punhal Ritual 22cm" loading="lazy"></div>
-      <div class="card__body">
-        <div class="card__medallion" aria-hidden="true">
-          <svg viewBox="0 0 120 120" class="medallion-ring">
-            <circle cx="60" cy="60" r="56"/>
-            <circle cx="60" cy="60" r="49"/>
-          </svg>
-          <div class="medallion-price"><span class="price-val">R$ 430,00</span></div>
+
+      <article class="card" id="p-punhal-22">
+        <div class="card__gallery card__gallery--double">
+          <img src="assets/img/punhal-22-1.jpg" alt="Punhal Ritual 22cm" loading="lazy">
+          <img src="assets/img/punhal-22-2.png" alt="Punhal Ritual 22cm" loading="lazy">
         </div>
-        <h3 class="card__title">Punhal Ritual 22cm</h3>
-        <ul class="card__specs"><li>Aço afiado para perfuração (não possui corte)</li><li>Comprimento total 22 a 23&nbsp;cm · lâmina 11&nbsp;cm</li><li>Decoração em biscuit, acabamento em resina</li><li>Bainha em veludo para proteção da lâmina</li></ul>
-        <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Punhal%20Ritual%2022cm." target="_blank" rel="noopener">Pedir no WhatsApp</a>
-      </div>
-    </article>
-    <article class="card" id="p-punhal-30">
-      <div class="card__gallery card__gallery--double"><img src="assets/img/punhal-30-1.jpg" alt="Punhal Ritual 30cm" loading="lazy"><img src="assets/img/punhal-30-2.jpg" alt="Punhal Ritual 30cm" loading="lazy"></div>
-      <div class="card__body">
-        <div class="card__medallion" aria-hidden="true">
-          <svg viewBox="0 0 120 120" class="medallion-ring">
-            <circle cx="60" cy="60" r="56"/>
-            <circle cx="60" cy="60" r="49"/>
-          </svg>
-          <div class="medallion-price"><span class="price-val">R$ 580,00</span></div>
+        <div class="card__body">
+          <div class="card__medallion" aria-hidden="true">
+            <svg viewBox="0 0 120 120" class="medallion-ring"><circle cx="60" cy="60" r="56"/><circle cx="60" cy="60" r="49"/></svg>
+            <div class="medallion-price"><span class="price-val">R$ 430</span></div>
+          </div>
+          <h3 class="card__title">Punhal Ritual 22cm</h3>
+          <ul class="card__specs">
+            <li>Aço afiado para perfuração (não possui corte)</li>
+            <li>Comprimento total 22 a 23&nbsp;cm · lâmina 11&nbsp;cm</li>
+            <li>Decoração em biscuit, acabamento em resina</li>
+            <li>Bainha em veludo para proteção da lâmina</li>
+          </ul>
+          <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Punhal%20Ritual%2022cm." target="_blank" rel="noopener">Pedir no WhatsApp</a>
         </div>
-        <h3 class="card__title">Punhal Ritual 30cm</h3>
-        <ul class="card__specs"><li>Aço afiado para corte, lâmina de fio duplo</li><li>Comprimento total 30&nbsp;cm · lâmina 15&nbsp;cm</li><li>Decoração em biscuit, acabamento em resina</li><li>Bainha em veludo para proteção da lâmina</li></ul>
-        <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Punhal%20Ritual%2030cm." target="_blank" rel="noopener">Pedir no WhatsApp</a>
-      </div>
-    </article>
-    <article class="card" id="p-adaga-osso-lamina">
-      <div class="card__gallery card__gallery--single"><img src="assets/img/adaga-osso-lamina-1.jpg" alt="Adaga Lâmina de Osso" loading="lazy"></div>
-      <div class="card__body">
-        <div class="card__medallion" aria-hidden="true">
-          <svg viewBox="0 0 120 120" class="medallion-ring">
-            <circle cx="60" cy="60" r="56"/>
-            <circle cx="60" cy="60" r="49"/>
-          </svg>
-          <div class="medallion-price"><span class="price-val">R$ 580,00</span></div>
+      </article>
+
+      <article class="card" id="p-punhal-30">
+        <div class="card__gallery card__gallery--double">
+          <img src="assets/img/punhal-30-1.jpg" alt="Punhal Ritual 30cm" loading="lazy">
+          <img src="assets/img/punhal-30-2.jpg" alt="Punhal Ritual 30cm" loading="lazy">
         </div>
-        <h3 class="card__title">Adaga Lâmina de Osso</h3>
-        <ul class="card__specs"><li>Lâmina em osso natural (não possui corte)</li><li>Cabo decorado em biscuit, pentagrama e pedra</li><li>Peça artesanal em material natural — pequenas variações de tom e formato fazem parte da peça</li></ul>
-        <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Adaga%20L%C3%A2mina%20de%20Osso." target="_blank" rel="noopener">Pedir no WhatsApp</a>
-      </div>
-    </article>
-    <article class="card" id="p-adaga-cabo-osso">
-      <div class="card__gallery card__gallery--single"><img src="assets/img/adaga-cabo-osso-1.jpg" alt="Adaga Cabo de Osso" loading="lazy"></div>
-      <div class="card__body">
-        <div class="card__medallion" aria-hidden="true">
-          <svg viewBox="0 0 120 120" class="medallion-ring">
-            <circle cx="60" cy="60" r="56"/>
-            <circle cx="60" cy="60" r="49"/>
-          </svg>
-          <div class="medallion-price"><span class="price-val">R$ 630,00</span></div>
+        <div class="card__body">
+          <div class="card__medallion" aria-hidden="true">
+            <svg viewBox="0 0 120 120" class="medallion-ring"><circle cx="60" cy="60" r="56"/><circle cx="60" cy="60" r="49"/></svg>
+            <div class="medallion-price"><span class="price-val">R$ 580</span></div>
+          </div>
+          <h3 class="card__title">Punhal Ritual 30cm</h3>
+          <ul class="card__specs">
+            <li>Aço afiado para corte, lâmina de fio duplo</li>
+            <li>Comprimento total 30&nbsp;cm · lâmina 15&nbsp;cm</li>
+            <li>Decoração em biscuit, acabamento em resina</li>
+            <li>Bainha em veludo para proteção da lâmina</li>
+          </ul>
+          <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Punhal%20Ritual%2030cm." target="_blank" rel="noopener">Pedir no WhatsApp</a>
         </div>
-        <h3 class="card__title">Adaga Cabo de Osso</h3>
-        <ul class="card__specs"><li>Aço afiado para corte · cabo em osso natural</li><li>Decoração em porcelana fria — caveiras e rosas</li><li>Bainha em veludo · acabamento em resina impermeável</li></ul>
-        <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Adaga%20Cabo%20de%20Osso." target="_blank" rel="noopener">Pedir no WhatsApp</a>
-      </div>
-    </article>
-    <article class="card" id="p-adaga-33cm">
-      <div class="card__gallery card__gallery--double"><img src="assets/img/adaga-33cm-1.jpg" alt="Adaga Personalizada 33cm" loading="lazy"><img src="assets/img/adaga-33cm-2.jpg" alt="Adaga Personalizada 33cm" loading="lazy"></div>
-      <div class="card__body">
-        <div class="card__medallion" aria-hidden="true">
-          <svg viewBox="0 0 120 120" class="medallion-ring">
-            <circle cx="60" cy="60" r="56"/>
-            <circle cx="60" cy="60" r="49"/>
-          </svg>
-          <div class="medallion-price"><span class="price-val">R$ 580,00</span></div>
+      </article>
+
+      <article class="card" id="p-adaga-osso-lamina">
+        <div class="card__gallery card__gallery--single">
+          <img src="assets/img/adaga-osso-lamina-1.jpg" alt="Adaga Lâmina de Osso" loading="lazy">
         </div>
-        <h3 class="card__title">Adaga Personalizada 33cm</h3>
-        <ul class="card__specs"><li>Aço afiado para corte, fio duplo</li><li>Decoração em porcelana fria — cruz, caveira ou pentagrama</li><li>Bainha em veludo · acabamento em resina impermeável</li></ul>
-        <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Adaga%20Personalizada%2033cm." target="_blank" rel="noopener">Pedir no WhatsApp</a>
-      </div>
-    </article>
-    <article class="card" id="p-facas-personalizadas">
-      <div class="card__gallery card__gallery--triple"><img src="assets/img/facas-personalizadas-1.jpg" alt="Faca Personalizada" loading="lazy"><img src="assets/img/facas-personalizadas-2.jpg" alt="Faca Personalizada" loading="lazy"><img src="assets/img/facas-personalizadas-3.jpg" alt="Faca Personalizada" loading="lazy"></div>
-      <div class="card__body">
-        <div class="card__medallion" aria-hidden="true">
-          <svg viewBox="0 0 120 120" class="medallion-ring">
-            <circle cx="60" cy="60" r="56"/>
-            <circle cx="60" cy="60" r="49"/>
-          </svg>
-          <div class="medallion-price"><span class="price-val price-val--multi">23&nbsp;cm — R$ 420,00 &nbsp;·&nbsp; 30&nbsp;cm — R$ 630,00</span></div>
+        <div class="card__body">
+          <div class="card__medallion" aria-hidden="true">
+            <svg viewBox="0 0 120 120" class="medallion-ring"><circle cx="60" cy="60" r="56"/><circle cx="60" cy="60" r="49"/></svg>
+            <div class="medallion-price"><span class="price-val">R$ 580</span></div>
+          </div>
+          <h3 class="card__title">Adaga Lâmina de Osso</h3>
+          <ul class="card__specs">
+            <li>Lâmina em osso natural (não possui corte)</li>
+            <li>Cabo decorado em biscuit, pentagrama e pedra</li>
+            <li>Peça artesanal em material natural — pequenas variações de tom e formato fazem parte da peça</li>
+          </ul>
+          <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Adaga%20L%C3%A2mina%20de%20Osso." target="_blank" rel="noopener">Pedir no WhatsApp</a>
         </div>
-        <h3 class="card__title">Faca Personalizada</h3>
-        <ul class="card__specs"><li>Aço afiado para corte</li><li>Decoração em porcelana fria, rosas e pentagrama</li><li>Bainha em veludo · acabamento em resina impermeável</li></ul>
-        <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Faca%20Personalizada." target="_blank" rel="noopener">Pedir no WhatsApp</a>
-      </div>
-    </article>
-    <article class="card" id="p-navalha">
-      <div class="card__gallery card__gallery--double"><img src="assets/img/navalha-1.jpg" alt="Navalha Personalizada" loading="lazy"><img src="assets/img/navalha-2.jpg" alt="Navalha Personalizada" loading="lazy"></div>
-      <div class="card__body">
-        <div class="card__medallion" aria-hidden="true">
-          <svg viewBox="0 0 120 120" class="medallion-ring">
-            <circle cx="60" cy="60" r="56"/>
-            <circle cx="60" cy="60" r="49"/>
-          </svg>
-          <div class="medallion-price"><span class="price-val">R$ 133,00</span></div>
+      </article>
+
+      <article class="card" id="p-adaga-cabo-osso">
+        <div class="card__gallery card__gallery--single">
+          <img src="assets/img/adaga-cabo-osso-1.jpg" alt="Adaga Cabo de Osso" loading="lazy">
         </div>
-        <h3 class="card__title">Navalha Personalizada</h3>
-        <ul class="card__specs"><li>Decorada em biscuit</li><li>Acabamento em resina</li><li>Cabo entalhado à mão — cada peça sai diferente da outra</li></ul>
-        <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Navalha%20Personalizada." target="_blank" rel="noopener">Pedir no WhatsApp</a>
-      </div>
-    </article>
-    <article class="card" id="p-tesoura">
-      <div class="card__gallery card__gallery--double"><img src="assets/img/tesoura-1.jpg" alt="Tesoura Personalizada 22cm" loading="lazy"><img src="assets/img/tesoura-2.jpg" alt="Tesoura Personalizada 22cm" loading="lazy"></div>
-      <div class="card__body">
-        <div class="card__medallion" aria-hidden="true">
-          <svg viewBox="0 0 120 120" class="medallion-ring">
-            <circle cx="60" cy="60" r="56"/>
-            <circle cx="60" cy="60" r="49"/>
-          </svg>
-          <div class="medallion-price"><span class="price-val">R$ 265,00</span></div>
+        <div class="card__body">
+          <div class="card__medallion" aria-hidden="true">
+            <svg viewBox="0 0 120 120" class="medallion-ring"><circle cx="60" cy="60" r="56"/><circle cx="60" cy="60" r="49"/></svg>
+            <div class="medallion-price"><span class="price-val">R$ 630</span></div>
+          </div>
+          <h3 class="card__title">Adaga Cabo de Osso</h3>
+          <ul class="card__specs">
+            <li>Aço afiado para corte · cabo em osso natural</li>
+            <li>Decoração em porcelana fria — caveiras e rosas</li>
+            <li>Bainha em veludo · acabamento em resina impermeável</li>
+          </ul>
+          <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Adaga%20Cabo%20de%20Osso." target="_blank" rel="noopener">Pedir no WhatsApp</a>
         </div>
-        <h3 class="card__title">Tesoura Personalizada 22cm</h3>
-        <ul class="card__specs"><li>Decorada em biscuit — caveiras e pedras</li><li>Acompanha bainha com interior em veludo</li></ul>
-        <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Tesoura%20Personalizada%2022cm." target="_blank" rel="noopener">Pedir no WhatsApp</a>
-      </div>
-    </article></div>
+      </article>
+
+      <article class="card" id="p-adaga-33cm">
+        <div class="card__gallery card__gallery--double">
+          <img src="assets/img/adaga-33cm-1.jpg" alt="Adaga Personalizada 33cm" loading="lazy">
+          <img src="assets/img/adaga-33cm-2.jpg" alt="Adaga Personalizada 33cm" loading="lazy">
+        </div>
+        <div class="card__body">
+          <div class="card__medallion" aria-hidden="true">
+            <svg viewBox="0 0 120 120" class="medallion-ring"><circle cx="60" cy="60" r="56"/><circle cx="60" cy="60" r="49"/></svg>
+            <div class="medallion-price"><span class="price-val">R$ 580</span></div>
+          </div>
+          <h3 class="card__title">Adaga Personalizada 33cm</h3>
+          <ul class="card__specs">
+            <li>Aço afiado para corte, fio duplo</li>
+            <li>Decoração em porcelana fria — cruz, caveira ou pentagrama</li>
+            <li>Bainha em veludo · acabamento em resina impermeável</li>
+          </ul>
+          <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Adaga%20Personalizada%2033cm." target="_blank" rel="noopener">Pedir no WhatsApp</a>
+        </div>
+      </article>
+
+      <article class="card" id="p-facas-personalizadas">
+        <div class="card__gallery card__gallery--triple">
+          <img src="assets/img/facas-personalizadas-1.png" alt="Faca Personalizada" loading="lazy">
+          <img src="assets/img/facas-personalizadas-2.png" alt="Faca Personalizada" loading="lazy">
+          <img src="assets/img/facas-personalizadas-3.png" alt="Faca Personalizada" loading="lazy">
+        </div>
+        <div class="card__body">
+          <div class="card__medallion" aria-hidden="true">
+            <svg viewBox="0 0 120 120" class="medallion-ring"><circle cx="60" cy="60" r="56"/><circle cx="60" cy="60" r="49"/></svg>
+            <div class="medallion-price"><span class="price-val--multi">23&nbsp;cm<br>R$ 420<br>30&nbsp;cm<br>R$ 630</span></div>
+          </div>
+          <h3 class="card__title">Faca Personalizada</h3>
+          <ul class="card__specs">
+            <li>Aço afiado para corte</li>
+            <li>Decoração em porcelana fria, rosas e pentagrama</li>
+            <li>Bainha em veludo · acabamento em resina impermeável</li>
+          </ul>
+          <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Faca%20Personalizada." target="_blank" rel="noopener">Pedir no WhatsApp</a>
+        </div>
+      </article>
+
+      <article class="card" id="p-navalha">
+        <div class="card__gallery card__gallery--double">
+          <img src="assets/img/navalha-1.jpg" alt="Navalha Personalizada" loading="lazy">
+          <img src="assets/img/navalha-2.jpg" alt="Navalha Personalizada" loading="lazy">
+        </div>
+        <div class="card__body">
+          <div class="card__medallion" aria-hidden="true">
+            <svg viewBox="0 0 120 120" class="medallion-ring"><circle cx="60" cy="60" r="56"/><circle cx="60" cy="60" r="49"/></svg>
+            <div class="medallion-price"><span class="price-val">R$ 133</span></div>
+          </div>
+          <h3 class="card__title">Navalha Personalizada</h3>
+          <ul class="card__specs">
+            <li>Decorada em biscuit</li>
+            <li>Acabamento em resina</li>
+            <li>Cabo entalhado à mão — cada peça sai diferente da outra</li>
+          </ul>
+          <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Navalha%20Personalizada." target="_blank" rel="noopener">Pedir no WhatsApp</a>
+        </div>
+      </article>
+
+      <article class="card" id="p-tesoura">
+        <div class="card__gallery card__gallery--double">
+          <img src="assets/img/tesoura-1.jpg" alt="Tesoura Personalizada 22cm" loading="lazy">
+          <img src="assets/img/tesoura-2.jpg" alt="Tesoura Personalizada 22cm" loading="lazy">
+        </div>
+        <div class="card__body">
+          <div class="card__medallion" aria-hidden="true">
+            <svg viewBox="0 0 120 120" class="medallion-ring"><circle cx="60" cy="60" r="56"/><circle cx="60" cy="60" r="49"/></svg>
+            <div class="medallion-price"><span class="price-val">R$ 265</span></div>
+          </div>
+          <h3 class="card__title">Tesoura Personalizada 22cm</h3>
+          <ul class="card__specs">
+            <li>Decorada em biscuit — caveiras e pedras</li>
+            <li>Acompanha bainha com interior em veludo</li>
+          </ul>
+          <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Tesoura%20Personalizada%2022cm." target="_blank" rel="noopener">Pedir no WhatsApp</a>
+        </div>
+      </article>
+
+    </div>
   </section>
+
+  <!-- ===== TAÇAS & CÁLICES ===== -->
   <section class="category" id="cat-tacas">
     <div class="category__head">
       <span class="eyebrow">Coleção</span>
@@ -492,37 +556,50 @@ img{max-width:100%;display:block;}
       <p>Vasilhas de oferenda em biscuit impermeabilizado, com metal e chifre natural.</p>
     </div>
     <div class="card-grid">
-    <article class="card" id="p-tacas-personalizadas">
-      <div class="card__gallery card__gallery--double"><img src="assets/img/tacas-personalizadas-1.jpg" alt="Taça Personalizada" loading="lazy"><img src="assets/img/tacas-personalizadas-2.jpg" alt="Taça Personalizada" loading="lazy"></div>
-      <div class="card__body">
-        <div class="card__medallion" aria-hidden="true">
-          <svg viewBox="0 0 120 120" class="medallion-ring">
-            <circle cx="60" cy="60" r="56"/>
-            <circle cx="60" cy="60" r="49"/>
-          </svg>
-          <div class="medallion-price"><span class="price-val">R$ 340,00</span></div>
+
+      <article class="card" id="p-tacas-personalizadas">
+        <div class="card__gallery card__gallery--double">
+          <img src="assets/img/tacas-personalizadas-1.jpg" alt="Taça Personalizada" loading="lazy">
+          <img src="assets/img/tacas-personalizadas-2.png" alt="Taça Personalizada" loading="lazy">
         </div>
-        <h3 class="card__title">Taça Personalizada</h3>
-        <ul class="card__specs"><li>Capacidade 490&nbsp;ml</li><li>Biscuit impermeabilizado com verniz de resina</li><li>Coroa, rosas e pedras — combinadas com o seu pedido</li></ul>
-        <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Ta%C3%A7a%20Personalizada." target="_blank" rel="noopener">Pedir no WhatsApp</a>
-      </div>
-    </article>
-    <article class="card" id="p-tacas-chifre-boi">
-      <div class="card__gallery card__gallery--single"><img src="assets/img/tacas-chifre-boi-1.jpg" alt="Taça Chifre de Boi" loading="lazy"></div>
-      <div class="card__body">
-        <div class="card__medallion" aria-hidden="true">
-          <svg viewBox="0 0 120 120" class="medallion-ring">
-            <circle cx="60" cy="60" r="56"/>
-            <circle cx="60" cy="60" r="49"/>
-          </svg>
-          <div class="medallion-price"><span class="price-val">R$ 420,00</span></div>
+        <div class="card__body">
+          <div class="card__medallion" aria-hidden="true">
+            <svg viewBox="0 0 120 120" class="medallion-ring"><circle cx="60" cy="60" r="56"/><circle cx="60" cy="60" r="49"/></svg>
+            <div class="medallion-price"><span class="price-val">R$ 340</span></div>
+          </div>
+          <h3 class="card__title">Taça Personalizada</h3>
+          <ul class="card__specs">
+            <li>Capacidade 490&nbsp;ml</li>
+            <li>Biscuit impermeabilizado com verniz de resina</li>
+            <li>Coroa, rosas e pedras — combinadas com o seu pedido</li>
+          </ul>
+          <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Ta%C3%A7a%20Personalizada." target="_blank" rel="noopener">Pedir no WhatsApp</a>
         </div>
-        <h3 class="card__title">Taça Chifre de Boi</h3>
-        <ul class="card__specs"><li>Chifre bovino natural, impermeabilizado</li><li>Decorada em biscuit — rosas negras e pedras</li><li>Peça natural: variações de tom e curvatura são esperadas</li></ul>
-        <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Ta%C3%A7a%20Chifre%20de%20Boi." target="_blank" rel="noopener">Pedir no WhatsApp</a>
-      </div>
-    </article></div>
+      </article>
+
+      <article class="card" id="p-tacas-chifre-boi">
+        <div class="card__gallery card__gallery--single">
+          <img src="assets/img/tacas-chifre-boi-1.jpg" alt="Taça Chifre de Boi" loading="lazy">
+        </div>
+        <div class="card__body">
+          <div class="card__medallion" aria-hidden="true">
+            <svg viewBox="0 0 120 120" class="medallion-ring"><circle cx="60" cy="60" r="56"/><circle cx="60" cy="60" r="49"/></svg>
+            <div class="medallion-price"><span class="price-val">R$ 420</span></div>
+          </div>
+          <h3 class="card__title">Taça Chifre de Boi</h3>
+          <ul class="card__specs">
+            <li>Chifre bovino natural, impermeabilizado</li>
+            <li>Decorada em biscuit — rosas negras e pedras</li>
+            <li>Peça natural: variações de tom e curvatura são esperadas</li>
+          </ul>
+          <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Ta%C3%A7a%20Chifre%20de%20Boi." target="_blank" rel="noopener">Pedir no WhatsApp</a>
+        </div>
+      </article>
+
+    </div>
   </section>
+
+  <!-- ===== LUZ DO ALTAR ===== -->
   <section class="category" id="cat-altar">
     <div class="category__head">
       <span class="eyebrow">Coleção</span>
@@ -530,82 +607,109 @@ img{max-width:100%;display:block;}
       <p>Castiçais, porta-velas e ofertórios para sustentar a chama do trabalho.</p>
     </div>
     <div class="card-grid">
-    <article class="card" id="p-castical-3velas">
-      <div class="card__gallery card__gallery--double"><img src="assets/img/castical-3velas-1.jpg" alt="Castiçal com 3 Suportes de Velas" loading="lazy"><img src="assets/img/castical-3velas-2.jpg" alt="Castiçal com 3 Suportes de Velas" loading="lazy"></div>
-      <div class="card__body">
-        <div class="card__medallion" aria-hidden="true">
-          <svg viewBox="0 0 120 120" class="medallion-ring">
-            <circle cx="60" cy="60" r="56"/>
-            <circle cx="60" cy="60" r="49"/>
-          </svg>
-          <div class="medallion-price"><span class="price-val">R$ 480,00</span></div>
+
+      <article class="card" id="p-castical-3velas">
+        <div class="card__gallery card__gallery--double">
+          <img src="assets/img/castical-3velas-1.png" alt="Castiçal com 3 Suportes de Velas" loading="lazy">
+          <img src="assets/img/castical-3velas-2.png" alt="Castiçal com 3 Suportes de Velas" loading="lazy">
         </div>
-        <h3 class="card__title">Castiçal com 3 Suportes de Velas</h3>
-        <ul class="card__specs"><li>Altura 30&nbsp;cm</li><li>Suporte para velas em alumínio</li><li>Caveiras, correntes e cruzes em biscuit</li></ul>
-        <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Casti%C3%A7al%20com%203%20Suportes%20de%20Velas." target="_blank" rel="noopener">Pedir no WhatsApp</a>
-      </div>
-    </article>
-    <article class="card" id="p-porta-velas-baixa">
-      <div class="card__gallery card__gallery--double"><img src="assets/img/porta-velas-baixa-1.jpg" alt="Porta-Velas Base Baixa" loading="lazy"><img src="assets/img/porta-velas-baixa-2.jpg" alt="Porta-Velas Base Baixa" loading="lazy"></div>
-      <div class="card__body">
-        <div class="card__medallion" aria-hidden="true">
-          <svg viewBox="0 0 120 120" class="medallion-ring">
-            <circle cx="60" cy="60" r="56"/>
-            <circle cx="60" cy="60" r="49"/>
-          </svg>
-          <div class="medallion-price"><span class="price-val">R$ 335,00</span></div>
+        <div class="card__body">
+          <div class="card__medallion" aria-hidden="true">
+            <svg viewBox="0 0 120 120" class="medallion-ring"><circle cx="60" cy="60" r="56"/><circle cx="60" cy="60" r="49"/></svg>
+            <div class="medallion-price"><span class="price-val">R$ 480</span></div>
+          </div>
+          <h3 class="card__title">Castiçal com 3 Suportes de Velas</h3>
+          <ul class="card__specs">
+            <li>Altura 30&nbsp;cm</li>
+            <li>Suporte para velas em alumínio</li>
+            <li>Caveiras, correntes e cruzes em biscuit</li>
+          </ul>
+          <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Casti%C3%A7al%20com%203%20Suportes%20de%20Velas." target="_blank" rel="noopener">Pedir no WhatsApp</a>
         </div>
-        <h3 class="card__title">Porta-Velas Base Baixa</h3>
-        <ul class="card__specs"><li>Base em metal com decoração em biscuit</li><li>Proteção em vidro para a vela</li><li>Acabamento em verniz</li></ul>
-        <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Porta-Velas%20Base%20Baixa." target="_blank" rel="noopener">Pedir no WhatsApp</a>
-      </div>
-    </article>
-    <article class="card" id="p-porta-velas-alta">
-      <div class="card__gallery card__gallery--single"><img src="assets/img/porta-velas-alta-1.jpg" alt="Porta-Velas Base Alta" loading="lazy"></div>
-      <div class="card__body">
-        <div class="card__medallion" aria-hidden="true">
-          <svg viewBox="0 0 120 120" class="medallion-ring">
-            <circle cx="60" cy="60" r="56"/>
-            <circle cx="60" cy="60" r="49"/>
-          </svg>
-          <div class="medallion-price"><span class="price-val">R$ 480,00</span></div>
+      </article>
+
+      <article class="card" id="p-porta-velas-baixa">
+        <div class="card__gallery card__gallery--double">
+          <img src="assets/img/porta-velas-baixa-1.jpg" alt="Porta-Velas Base Baixa" loading="lazy">
+          <img src="assets/img/porta-velas-baixa-2.jpg" alt="Porta-Velas Base Baixa" loading="lazy">
         </div>
-        <h3 class="card__title">Porta-Velas Base Alta</h3>
-        <ul class="card__specs"><li>Base em metal com decoração em biscuit</li><li>Proteção em vidro para a vela</li><li>Acabamento em verniz</li></ul>
-        <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Porta-Velas%20Base%20Alta." target="_blank" rel="noopener">Pedir no WhatsApp</a>
-      </div>
-    </article>
-    <article class="card" id="p-casticais-palito">
-      <div class="card__gallery card__gallery--double"><img src="assets/img/casticais-palito-1.jpg" alt="Castiçal para Velas Palito" loading="lazy"><img src="assets/img/casticais-palito-2.jpg" alt="Castiçal para Velas Palito" loading="lazy"></div>
-      <div class="card__body">
-        <div class="card__medallion" aria-hidden="true">
-          <svg viewBox="0 0 120 120" class="medallion-ring">
-            <circle cx="60" cy="60" r="56"/>
-            <circle cx="60" cy="60" r="49"/>
-          </svg>
-          <div class="medallion-price"><span class="price-val">R$ 280,00</span></div>
+        <div class="card__body">
+          <div class="card__medallion" aria-hidden="true">
+            <svg viewBox="0 0 120 120" class="medallion-ring"><circle cx="60" cy="60" r="56"/><circle cx="60" cy="60" r="49"/></svg>
+            <div class="medallion-price"><span class="price-val">R$ 335</span></div>
+          </div>
+          <h3 class="card__title">Porta-Velas Base Baixa</h3>
+          <ul class="card__specs">
+            <li>Base em metal com decoração em biscuit</li>
+            <li>Proteção em vidro para a vela</li>
+            <li>Acabamento em verniz</li>
+          </ul>
+          <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Porta-Velas%20Base%20Baixa." target="_blank" rel="noopener">Pedir no WhatsApp</a>
         </div>
-        <h3 class="card__title">Castiçal para Velas Palito</h3>
-        <ul class="card__specs"><li>Suporte em alumínio</li><li>Decoração em biscuit — rosas e pedras</li><li>Ideal para velas palito</li></ul>
-        <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Casti%C3%A7al%20para%20Velas%20Palito." target="_blank" rel="noopener">Pedir no WhatsApp</a>
-      </div>
-    </article>
-    <article class="card" id="p-ofertorio-rosa">
-      <div class="card__gallery card__gallery--single"><img src="assets/img/ofertorio-rosa-1.jpg" alt="Ofertório de Rosa" loading="lazy"></div>
-      <div class="card__body">
-        <div class="card__medallion" aria-hidden="true">
-          <svg viewBox="0 0 120 120" class="medallion-ring">
-            <circle cx="60" cy="60" r="56"/>
-            <circle cx="60" cy="60" r="49"/>
-          </svg>
-          <div class="medallion-price"><span class="price-val">R$ 183,00</span></div>
+      </article>
+
+      <article class="card" id="p-porta-velas-alta">
+        <div class="card__gallery card__gallery--single">
+          <img src="assets/img/porta-velas-alta-1.jpg" alt="Porta-Velas Base Alta" loading="lazy">
         </div>
-        <h3 class="card__title">Ofertório de Rosa</h3>
-        <ul class="card__specs"><li>Porcelana fria</li><li>Acabamento em verniz</li><li>Rosa aberta com botão, suporte para vela palito</li></ul>
-        <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Ofert%C3%B3rio%20de%20Rosa." target="_blank" rel="noopener">Pedir no WhatsApp</a>
-      </div>
-    </article></div>
+        <div class="card__body">
+          <div class="card__medallion" aria-hidden="true">
+            <svg viewBox="0 0 120 120" class="medallion-ring"><circle cx="60" cy="60" r="56"/><circle cx="60" cy="60" r="49"/></svg>
+            <div class="medallion-price"><span class="price-val">R$ 480</span></div>
+          </div>
+          <h3 class="card__title">Porta-Velas Base Alta</h3>
+          <ul class="card__specs">
+            <li>Base em metal com decoração em biscuit</li>
+            <li>Proteção em vidro para a vela</li>
+            <li>Acabamento em verniz</li>
+          </ul>
+          <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Porta-Velas%20Base%20Alta." target="_blank" rel="noopener">Pedir no WhatsApp</a>
+        </div>
+      </article>
+
+      <article class="card" id="p-casticais-palito">
+        <div class="card__gallery card__gallery--double">
+          <img src="assets/img/casticais-palito-1.jpg" alt="Castiçal para Velas Palito" loading="lazy">
+          <img src="assets/img/casticais-palito-2.jpg" alt="Castiçal para Velas Palito" loading="lazy">
+        </div>
+        <div class="card__body">
+          <div class="card__medallion" aria-hidden="true">
+            <svg viewBox="0 0 120 120" class="medallion-ring"><circle cx="60" cy="60" r="56"/><circle cx="60" cy="60" r="49"/></svg>
+            <div class="medallion-price"><span class="price-val">R$ 280</span></div>
+          </div>
+          <h3 class="card__title">Castiçal para Velas Palito</h3>
+          <ul class="card__specs">
+            <li>Suporte em alumínio</li>
+            <li>Decoração em biscuit — rosas e pedras</li>
+            <li>Ideal para velas palito</li>
+          </ul>
+          <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Casti%C3%A7al%20para%20Velas%20Palito." target="_blank" rel="noopener">Pedir no WhatsApp</a>
+        </div>
+      </article>
+
+      <article class="card" id="p-ofertorio-rosa">
+        <div class="card__gallery card__gallery--single">
+          <img src="assets/img/ofertorio-rosa-1.jpg" alt="Ofertório de Rosa" loading="lazy">
+        </div>
+        <div class="card__body">
+          <div class="card__medallion" aria-hidden="true">
+            <svg viewBox="0 0 120 120" class="medallion-ring"><circle cx="60" cy="60" r="56"/><circle cx="60" cy="60" r="49"/></svg>
+            <div class="medallion-price"><span class="price-val">R$ 183</span></div>
+          </div>
+          <h3 class="card__title">Ofertório de Rosa</h3>
+          <ul class="card__specs">
+            <li>Porcelana fria</li>
+            <li>Acabamento em verniz</li>
+            <li>Rosa aberta com botão, suporte para vela palito</li>
+          </ul>
+          <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Ofert%C3%B3rio%20de%20Rosa." target="_blank" rel="noopener">Pedir no WhatsApp</a>
+        </div>
+      </article>
+
+    </div>
   </section>
+
+  <!-- ===== CALDEIRÕES & ASSENTAMENTOS ===== -->
   <section class="category" id="cat-caldeiroes">
     <div class="category__head">
       <span class="eyebrow">Coleção</span>
@@ -613,67 +717,91 @@ img{max-width:100%;display:block;}
       <p>As peças de maior porte do ateliê — feitas sob encomenda, uma a uma.</p>
     </div>
     <div class="card-grid">
-    <article class="card card--feature" id="p-caldeirao-barro">
-      <div class="card__gallery card__gallery--single"><img src="assets/img/caldeirao-barro-1.jpg" alt="Caldeirão em Panela de Barro" loading="lazy"></div>
-      <div class="card__body">
-        <div class="card__medallion" aria-hidden="true">
-          <svg viewBox="0 0 120 120" class="medallion-ring">
-            <circle cx="60" cy="60" r="56"/>
-            <circle cx="60" cy="60" r="49"/>
-          </svg>
-          <div class="medallion-price"><span class="price-val price-val--multi">1&nbsp;L — R$ 870,00 &nbsp;·&nbsp; 3&nbsp;L — R$ 1.430,00</span></div>
+
+      <article class="card card--feature" id="p-caldeirao-barro">
+        <div class="card__gallery card__gallery--single">
+          <img src="assets/img/caldeirao-barro-1.jpg" alt="Caldeirão em Panela de Barro" loading="lazy">
         </div>
-        <h3 class="card__title">Caldeirão em Panela de Barro</h3>
-        <ul class="card__specs"><li>Decoração em biscuit com acabamento em verniz</li><li>Pode conter fogo somente na parte interna</li><li>Chifres, luas e caveiras esculpidos à mão</li></ul>
-        <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Caldeir%C3%A3o%20em%20Panela%20de%20Barro." target="_blank" rel="noopener">Pedir no WhatsApp</a>
-      </div>
-    </article>
-    <article class="card card--feature" id="p-assentamento-barro">
-      <div class="card__gallery card__gallery--single"><img src="assets/img/assentamento-barro-1.jpg" alt="Assentamento — Base em Panela de Barro" loading="lazy"></div>
-      <div class="card__body">
-        <div class="card__medallion" aria-hidden="true">
-          <svg viewBox="0 0 120 120" class="medallion-ring">
-            <circle cx="60" cy="60" r="56"/>
-            <circle cx="60" cy="60" r="49"/>
-          </svg>
-          <div class="medallion-price"><span class="price-val">R$ 1.460,00</span></div>
+        <div class="card__body">
+          <div class="card__medallion" aria-hidden="true">
+            <svg viewBox="0 0 120 120" class="medallion-ring"><circle cx="60" cy="60" r="56"/><circle cx="60" cy="60" r="49"/></svg>
+            <div class="medallion-price"><span class="price-val--multi">1&nbsp;L<br>R$ 870<br>3&nbsp;L<br>R$ 1.430</span></div>
+          </div>
+          <h3 class="card__title">Caldeirão em Panela de Barro</h3>
+          <ul class="card__specs">
+            <li>Decoração em biscuit com acabamento em verniz</li>
+            <li>Pode conter fogo somente na parte interna</li>
+            <li>Chifres, luas e caveiras esculpidos à mão</li>
+          </ul>
+          <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Caldeir%C3%A3o%20em%20Panela%20de%20Barro." target="_blank" rel="noopener">Pedir no WhatsApp</a>
         </div>
-        <h3 class="card__title">Assentamento — Base em Panela de Barro</h3>
-        <ul class="card__specs"><li>Peça inteiramente trabalhada em biscuit</li><li>Cabeça de Exu, garras e vidro rubro no corpo</li><li>Acabamento em verniz</li></ul>
-        <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Assentamento%20%E2%80%94%20Base%20em%20Panela%20de%20Barro." target="_blank" rel="noopener">Pedir no WhatsApp</a>
-      </div>
-    </article>
-    <article class="card card--feature" id="p-alguidar">
-      <div class="card__gallery card__gallery--triple"><img src="assets/img/alguidar-1.jpg" alt="Alguidar Personalizado" loading="lazy"><img src="assets/img/alguidar-2.jpg" alt="Alguidar Personalizado" loading="lazy"><img src="assets/img/alguidar-3.jpg" alt="Alguidar Personalizado" loading="lazy"></div>
-      <div class="card__body">
-        <div class="card__medallion" aria-hidden="true">
-          <svg viewBox="0 0 120 120" class="medallion-ring">
-            <circle cx="60" cy="60" r="56"/>
-            <circle cx="60" cy="60" r="49"/>
-          </svg>
-          <div class="medallion-price"><span class="price-val">R$ 1.460,00</span></div>
+      </article>
+
+      <article class="card card--feature" id="p-assentamento-barro">
+        <div class="card__gallery card__gallery--single">
+          <img src="assets/img/assentamento-barro-1.jpg" alt="Assentamento — Base em Panela de Barro" loading="lazy">
         </div>
-        <h3 class="card__title">Alguidar Personalizado</h3>
-        <ul class="card__specs"><li>Base em barro, decoração inteira em biscuit</li><li>Cabeça de Exu com chifres, pentagrama e presas</li><li>Acabamento em verniz</li></ul>
-        <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Alguidar%20Personalizado." target="_blank" rel="noopener">Pedir no WhatsApp</a>
-      </div>
-    </article>
-    <article class="card" id="p-ofertorio-cinzas">
-      <div class="card__gallery card__gallery--triple"><img src="assets/img/ofertorio-cinzas-1.jpg" alt="Ofertório com Suporte para Cinzas" loading="lazy"><img src="assets/img/ofertorio-cinzas-2.jpg" alt="Ofertório com Suporte para Cinzas" loading="lazy"><img src="assets/img/ofertorio-cinzas-3.jpg" alt="Ofertório com Suporte para Cinzas" loading="lazy"></div>
-      <div class="card__body">
-        <div class="card__medallion" aria-hidden="true">
-          <svg viewBox="0 0 120 120" class="medallion-ring">
-            <circle cx="60" cy="60" r="56"/>
-            <circle cx="60" cy="60" r="49"/>
-          </svg>
-          <div class="medallion-price"><span class="price-val">R$ 250,00</span></div>
+        <div class="card__body">
+          <div class="card__medallion" aria-hidden="true">
+            <svg viewBox="0 0 120 120" class="medallion-ring"><circle cx="60" cy="60" r="56"/><circle cx="60" cy="60" r="49"/></svg>
+            <div class="medallion-price"><span class="price-val">R$ 1.460</span></div>
+          </div>
+          <h3 class="card__title">Assentamento — Base em Panela de Barro</h3>
+          <ul class="card__specs">
+            <li>Peça inteiramente trabalhada em biscuit</li>
+            <li>Cabeça de Exu, garras e vidro rubro no corpo</li>
+            <li>Acabamento em verniz</li>
+          </ul>
+          <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Assentamento%20%E2%80%94%20Base%20em%20Panela%20de%20Barro." target="_blank" rel="noopener">Pedir no WhatsApp</a>
         </div>
-        <h3 class="card__title">Ofertório com Suporte para Cinzas</h3>
-        <ul class="card__specs"><li>Base de metal removível para coletar as cinzas</li><li>Pentagrama, rosas e vassoura em biscuit</li><li>Facilita a limpeza e preserva a peça</li></ul>
-        <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Ofert%C3%B3rio%20com%20Suporte%20para%20Cinzas." target="_blank" rel="noopener">Pedir no WhatsApp</a>
-      </div>
-    </article></div>
+      </article>
+
+      <article class="card card--feature" id="p-alguidar">
+        <div class="card__gallery card__gallery--triple">
+          <img src="assets/img/alguidar-1.jpg" alt="Alguidar Personalizado" loading="lazy">
+          <img src="assets/img/alguidar-2.jpg" alt="Alguidar Personalizado" loading="lazy">
+          <img src="assets/img/alguidar-3.jpg" alt="Alguidar Personalizado" loading="lazy">
+        </div>
+        <div class="card__body">
+          <div class="card__medallion" aria-hidden="true">
+            <svg viewBox="0 0 120 120" class="medallion-ring"><circle cx="60" cy="60" r="56"/><circle cx="60" cy="60" r="49"/></svg>
+            <div class="medallion-price"><span class="price-val">R$ 1.460</span></div>
+          </div>
+          <h3 class="card__title">Alguidar Personalizado</h3>
+          <ul class="card__specs">
+            <li>Base em barro, decoração inteira em biscuit</li>
+            <li>Cabeça de Exu com chifres, pentagrama e presas</li>
+            <li>Acabamento em verniz</li>
+          </ul>
+          <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Alguidar%20Personalizado." target="_blank" rel="noopener">Pedir no WhatsApp</a>
+        </div>
+      </article>
+
+      <article class="card" id="p-ofertorio-cinzas">
+        <div class="card__gallery card__gallery--triple">
+          <img src="assets/img/ofertorio-cinzas-1.jpg" alt="Ofertório com Suporte para Cinzas" loading="lazy">
+          <img src="assets/img/ofertorio-cinzas-2.jpg" alt="Ofertório com Suporte para Cinzas" loading="lazy">
+          <img src="assets/img/ofertorio-cinzas-3.jpg" alt="Ofertório com Suporte para Cinzas" loading="lazy">
+        </div>
+        <div class="card__body">
+          <div class="card__medallion" aria-hidden="true">
+            <svg viewBox="0 0 120 120" class="medallion-ring"><circle cx="60" cy="60" r="56"/><circle cx="60" cy="60" r="49"/></svg>
+            <div class="medallion-price"><span class="price-val">R$ 250</span></div>
+          </div>
+          <h3 class="card__title">Ofertório com Suporte para Cinzas</h3>
+          <ul class="card__specs">
+            <li>Base de metal removível para coletar as cinzas</li>
+            <li>Pentagrama, rosas e vassoura em biscuit</li>
+            <li>Facilita a limpeza e preserva a peça</li>
+          </ul>
+          <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Ofert%C3%B3rio%20com%20Suporte%20para%20Cinzas." target="_blank" rel="noopener">Pedir no WhatsApp</a>
+        </div>
+      </article>
+
+    </div>
   </section>
+
+  <!-- ===== PEÇAS ESPECIAIS ===== -->
   <section class="category" id="cat-especiais">
     <div class="category__head">
       <span class="eyebrow">Coleção</span>
@@ -681,52 +809,71 @@ img{max-width:100%;display:block;}
       <p>Caixas, quartinhas e a bengala ritual — objetos de guarda e presença.</p>
     </div>
     <div class="card-grid">
-    <article class="card" id="p-caixa-coracao">
-      <div class="card__gallery card__gallery--double"><img src="assets/img/caixa-coracao-1.jpg" alt="Caixa Coração em MDF" loading="lazy"><img src="assets/img/caixa-coracao-2.jpg" alt="Caixa Coração em MDF" loading="lazy"></div>
-      <div class="card__body">
-        <div class="card__medallion" aria-hidden="true">
-          <svg viewBox="0 0 120 120" class="medallion-ring">
-            <circle cx="60" cy="60" r="56"/>
-            <circle cx="60" cy="60" r="49"/>
-          </svg>
-          <div class="medallion-price"><span class="price-val">R$ 530,00</span></div>
+
+      <article class="card" id="p-caixa-coracao">
+        <div class="card__gallery card__gallery--double">
+          <img src="assets/img/caixa-coracao-1.jpg" alt="Caixa Coração em MDF" loading="lazy">
+          <img src="assets/img/caixa-coracao-2.jpg" alt="Caixa Coração em MDF" loading="lazy">
         </div>
-        <h3 class="card__title">Caixa Coração em MDF</h3>
-        <ul class="card__specs"><li>MDF resinado, interior em veludo</li><li>Altura 10&nbsp;cm · largura 25&nbsp;cm · comprimento 22&nbsp;cm</li><li>Cruz invertida, pentagrama e cabeça de bode</li></ul>
-        <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Caixa%20Cora%C3%A7%C3%A3o%20em%20MDF." target="_blank" rel="noopener">Pedir no WhatsApp</a>
-      </div>
-    </article>
-    <article class="card" id="p-quartinha">
-      <div class="card__gallery card__gallery--double"><img src="assets/img/quartinha-1.jpg" alt="Quartinha para Altar" loading="lazy"><img src="assets/img/quartinha-2.jpg" alt="Quartinha para Altar" loading="lazy"></div>
-      <div class="card__body">
-        <div class="card__medallion" aria-hidden="true">
-          <svg viewBox="0 0 120 120" class="medallion-ring">
-            <circle cx="60" cy="60" r="56"/>
-            <circle cx="60" cy="60" r="49"/>
-          </svg>
-          <div class="medallion-price"><span class="price-val price-val--multi">30&nbsp;cm — R$ 420,00 &nbsp;·&nbsp; 15&nbsp;cm — R$ 300,00</span></div>
+        <div class="card__body">
+          <div class="card__medallion" aria-hidden="true">
+            <svg viewBox="0 0 120 120" class="medallion-ring"><circle cx="60" cy="60" r="56"/><circle cx="60" cy="60" r="49"/></svg>
+            <div class="medallion-price"><span class="price-val">R$ 530</span></div>
+          </div>
+          <h3 class="card__title">Caixa Coração em MDF</h3>
+          <ul class="card__specs">
+            <li>MDF resinado, interior em veludo</li>
+            <li>Altura 10&nbsp;cm · largura 25&nbsp;cm · comprimento 22&nbsp;cm</li>
+            <li>Cruz invertida, pentagrama e cabeça de bode</li>
+          </ul>
+          <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Caixa%20Cora%C3%A7%C3%A3o%20em%20MDF." target="_blank" rel="noopener">Pedir no WhatsApp</a>
         </div>
-        <h3 class="card__title">Quartinha para Altar</h3>
-        <ul class="card__specs"><li>Porcelana com detalhes em biscuit</li><li>Impermeabilizada — proteção contra umidade</li><li>Ideal para altares</li></ul>
-        <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Quartinha%20para%20Altar." target="_blank" rel="noopener">Pedir no WhatsApp</a>
-      </div>
-    </article>
-    <article class="card card--feature" id="p-bengala">
-      <div class="card__gallery card__gallery--triple"><img src="assets/img/bengala-1.jpg" alt="Bengala Ritual 90cm" loading="lazy"><img src="assets/img/bengala-2.jpg" alt="Bengala Ritual 90cm" loading="lazy"><img src="assets/img/bengala-3.jpg" alt="Bengala Ritual 90cm" loading="lazy"></div>
-      <div class="card__body">
-        <div class="card__medallion" aria-hidden="true">
-          <svg viewBox="0 0 120 120" class="medallion-ring">
-            <circle cx="60" cy="60" r="56"/>
-            <circle cx="60" cy="60" r="49"/>
-          </svg>
-          <div class="medallion-price"><span class="price-val price-val--multi">Com punhal embutido — R$ 980,00 &nbsp;·&nbsp; Sem punhal — R$ 750,00</span></div>
+      </article>
+
+      <article class="card" id="p-quartinha">
+        <div class="card__gallery card__gallery--double">
+          <img src="assets/img/quartinha-1.jpg" alt="Quartinha para Altar" loading="lazy">
+          <img src="assets/img/quartinha-2.jpg" alt="Quartinha para Altar" loading="lazy">
         </div>
-        <h3 class="card__title">Bengala Ritual 90cm</h3>
-        <ul class="card__specs"><li>Madeira, biscuit e verniz</li><li>Coruja, caveiras, rosas e pentagrama esculpidos à mão</li><li>Punhal embutido disponível como opção</li></ul>
-        <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Bengala%20Ritual%2090cm." target="_blank" rel="noopener">Pedir no WhatsApp</a>
-      </div>
-    </article></div>
+        <div class="card__body">
+          <div class="card__medallion" aria-hidden="true">
+            <svg viewBox="0 0 120 120" class="medallion-ring"><circle cx="60" cy="60" r="56"/><circle cx="60" cy="60" r="49"/></svg>
+            <div class="medallion-price"><span class="price-val--multi">30&nbsp;cm<br>R$ 420<br>15&nbsp;cm<br>R$ 300</span></div>
+          </div>
+          <h3 class="card__title">Quartinha para Altar</h3>
+          <ul class="card__specs">
+            <li>Porcelana com detalhes em biscuit</li>
+            <li>Impermeabilizada — proteção contra umidade</li>
+            <li>Ideal para altares</li>
+          </ul>
+          <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Quartinha%20para%20Altar." target="_blank" rel="noopener">Pedir no WhatsApp</a>
+        </div>
+      </article>
+
+      <article class="card card--feature" id="p-bengala">
+        <div class="card__gallery card__gallery--triple">
+          <img src="assets/img/bengala-1.jpg" alt="Bengala Ritual 90cm" loading="lazy">
+          <img src="assets/img/bengala-2.jpg" alt="Bengala Ritual 90cm" loading="lazy">
+          <img src="assets/img/bengala-3.jpg" alt="Bengala Ritual 90cm" loading="lazy">
+        </div>
+        <div class="card__body">
+          <div class="card__medallion" aria-hidden="true">
+            <svg viewBox="0 0 120 120" class="medallion-ring"><circle cx="60" cy="60" r="56"/><circle cx="60" cy="60" r="49"/></svg>
+            <div class="medallion-price"><span class="price-val--multi">c/ punhal<br>R$ 980<br>s/ punhal<br>R$ 750</span></div>
+          </div>
+          <h3 class="card__title">Bengala Ritual 90cm</h3>
+          <ul class="card__specs">
+            <li>Madeira, biscuit e verniz</li>
+            <li>Coruja, caveiras, rosas e pentagrama esculpidos à mão</li>
+            <li>Punhal embutido disponível como opção</li>
+          </ul>
+          <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Bengala%20Ritual%2090cm." target="_blank" rel="noopener">Pedir no WhatsApp</a>
+        </div>
+      </article>
+
+    </div>
   </section>
+
 </main>
 
 <section class="payment" id="pagamento">
@@ -753,22 +900,8 @@ img{max-width:100%;display:block;}
 </section>
 
 <section class="final-cta">
-  <div class="hero__ornament hero__ornament--tl" aria-hidden="true"><svg viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M4 4 Q4 40 40 40" stroke="currentColor" stroke-width="1"/>
-<path d="M4 4 Q40 4 40 40" stroke="currentColor" stroke-width="1"/>
-<circle cx="4" cy="4" r="2.4" fill="currentColor"/>
-<path d="M14 4c8 2 12 8 10 16-2 6-9 8-13 3" stroke="currentColor" stroke-width="1"/>
-<path d="M4 14c2 8 8 12 16 10 6-2 8-9 3-13" stroke="currentColor" stroke-width="1"/>
-<circle cx="40" cy="40" r="1.6" fill="currentColor"/>
-</svg></div>
-  <div class="hero__ornament hero__ornament--tr" aria-hidden="true"><svg viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M4 4 Q4 40 40 40" stroke="currentColor" stroke-width="1"/>
-<path d="M4 4 Q40 4 40 40" stroke="currentColor" stroke-width="1"/>
-<circle cx="4" cy="4" r="2.4" fill="currentColor"/>
-<path d="M14 4c8 2 12 8 10 16-2 6-9 8-13 3" stroke="currentColor" stroke-width="1"/>
-<path d="M4 14c2 8 8 12 16 10 6-2 8-9 3-13" stroke="currentColor" stroke-width="1"/>
-<circle cx="40" cy="40" r="1.6" fill="currentColor"/>
-</svg></div>
+  <div class="hero__ornament hero__ornament--tl" aria-hidden="true"><svg viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 4 Q4 40 40 40" stroke="currentColor" stroke-width="1"/><path d="M4 4 Q40 4 40 40" stroke="currentColor" stroke-width="1"/><circle cx="4" cy="4" r="2.4" fill="currentColor"/><path d="M14 4c8 2 12 8 10 16-2 6-9 8-13 3" stroke="currentColor" stroke-width="1"/><path d="M4 14c2 8 8 12 16 10 6-2 8-9 3-13" stroke="currentColor" stroke-width="1"/><circle cx="40" cy="40" r="1.6" fill="currentColor"/></svg></div>
+  <div class="hero__ornament hero__ornament--tr" aria-hidden="true"><svg viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 4 Q4 40 40 40" stroke="currentColor" stroke-width="1"/><path d="M4 4 Q40 4 40 40" stroke="currentColor" stroke-width="1"/><circle cx="4" cy="4" r="2.4" fill="currentColor"/><path d="M14 4c8 2 12 8 10 16-2 6-9 8-13 3" stroke="currentColor" stroke-width="1"/><path d="M4 14c2 8 8 12 16 10 6-2 8-9 3-13" stroke="currentColor" stroke-width="1"/><circle cx="40" cy="40" r="1.6" fill="currentColor"/></svg></div>
   <h2>Sua peça começa com uma mensagem</h2>
   <p>Conte o que você precisa para o seu altar, assentamento ou trabalho.</p>
   <a class="btn btn--primary btn--lg" href="https://wa.me/5519997751598?text=Ola%21%20Vi%20o%20catalogo%20completo%20e%20quero%20fazer%20um%20pedido%20personalizado." target="_blank" rel="noopener">
