@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ateliê Jaine Schaper — Arte Ritual Autoral</title>
+<meta name="description" content="Ossos e ferramentas para Exu &amp; Pombogira. Peças autorais em rococó, barroco e vitoriano, feitas à mão desde 2023.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --bg:#0b0a08;
+  --bg-alt:#151210;
+  --bg-card:#17130f;
+  --ink:#f1e6d2;
+  --ink-dim:#a9997b;
+  --ink-faint:#6f6252;
+  --gold:#c9a44c;
+  --gold-soft:#e4c983;
+  --gold-deep:#8a6a24;
+  --blood:#7c1a22;
+  --blood-bright:#a9222c;
+  --hairline:rgba(201,164,76,.22);
+  --shadow:0 20px 50px -20px rgba(0,0,0,.65);
+  --serif-display:'Cinzel',serif;
+  --serif-body:'Cormorant Garamond',serif;
+  --sans-ui:'Jost',sans-serif;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--serif-body);
+  font-size:18px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+h1,h2,h3{font-family:var(--serif-display);letter-spacing:.02em;margin:0;font-weight:600;color:var(--gold-soft);}
+a{color:inherit;text-decoration:none;}
+ul{margin:0;padding:0;list-style:none;}
+img{max-width:100%;display:block;}
+
+.noise{
+  position:fixed;inset:0;pointer-events:none;z-index:999;opacity:.035;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+.eyebrow{
+  font-family:var(--sans-ui);
+  font-size:.72rem;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  color:var(--gold);
+  display:inline-block;
+  margin-bottom:.6rem;
+}
+
+/* ---------- NAV ---------- */
+.nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(11,10,8,.7);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid transparent;
+  transition:border-color .3s ease, background .3s ease;
+}
+.nav.is-scrolled{border-bottom-color:var(--hairline);background:rgba(11,10,8,.92);}
+.nav__inner{
+  max-width:1240px;margin:0 auto;
+  display:flex;align-items:center;gap:2rem;
+  padding:1rem 1.5rem;
+}
+.nav__brand{display:flex;align-items:center;gap:.55rem;font-family:var(--serif-display);font-size:1.05rem;color:var(--ink);white-space:nowrap;}
+.nav__brand-mark{color:var(--gold);}
+.nav__brand-text em{color:var(--gold-soft);font-style:normal;font-weight:400;font-size:.85em;}
+.nav__links{display:flex;gap:1.6rem;margin-left:auto;font-family:var(--sans-ui);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;}
+.nav__links a{color:var(--ink-dim);transition:color .2s;}
+.nav__links a:hover{color:var(--gold-soft);}
+.nav__cta{
+  font-family:var(--sans-ui);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;
+  border:1px solid var(--gold);color:var(--gold-soft);padding:.55rem 1.1rem;border-radius:2px;
+  transition:background .2s, color .2s;white-space:nowrap;
+}
+.nav__cta:hover{background:var(--gold);color:#151107;}
+.nav__burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:32px;height:32px;background:none;border:0;cursor:pointer;margin-left:.5rem;}
+.nav__burger span{display:block;height:1px;background:var(--gold-soft);width:100%;transition:transform .25s, opacity .25s;}
+.nav__burger.is-open span:nth-child(1){transform:translateY(6px) rotate(45deg);}
+.nav__burger.is-open span:nth-child(2){opacity:0;}
+.nav__burger.is-open span:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
+.nav__mobile{display:none;flex-direction:column;gap:1rem;padding:1rem 1.5rem 1.6rem;font-family:var(--sans-ui);text-transform:uppercase;letter-spacing:.08em;font-size:.85rem;border-top:1px solid var(--hairline);}
+.nav__mobile a{color:var(--ink-dim);}
+.nav__cta--mobile{border:1px solid var(--gold);color:var(--gold-soft);padding:.7rem 1rem;text-align:center;margin-top:.4rem;}
+
+/* ---------- HERO ---------- */
+.hero{
+  position:relative;min-height:100svh;display:flex;align-items:center;justify-content:center;
+  padding:6rem 1.5rem 4rem;
+  background:
+    radial-gradient(ellipse at 50% 20%, rgba(122,26,34,.18), transparent 55%),
+    radial-gradient(ellipse at 50% 100%, rgba(201,164,76,.09), transparent 60%),
+    var(--bg);
+  overflow:hidden;
+  text-align:center;
+}
+.hero__ornament{position:absolute;width:110px;height:110px;color:var(--gold);opacity:.55;}
+.hero__ornament--tl{top:22px;left:22px;}
+.hero__ornament--tr{top:22px;right:22px;transform:scaleX(-1);}
+.hero__ornament--bl{bottom:22px;left:22px;transform:scaleY(-1);}
+.hero__ornament--br{bottom:22px;right:22px;transform:scale(-1,-1);}
+.hero__content{position:relative;z-index:2;max-width:720px;}
+.hero__mark{width:120px;margin:0 auto 1.6rem;filter:drop-shadow(0 10px 30px rgba(0,0,0,.6));border-radius:4px;}
+.hero__eyebrow{font-family:var(--sans-ui);text-transform:uppercase;letter-spacing:.3em;font-size:.78rem;color:var(--gold);margin:0 0 1.1rem;}
+.hero__title{font-size:clamp(2.1rem,5.4vw,3.6rem);line-height:1.15;color:var(--ink);text-shadow:0 2px 30px rgba(0,0,0,.5);}
+.hero__title br{display:block;}
+.hero__styles{
+  font-family:var(--sans-ui);letter-spacing:.22em;text-transform:uppercase;font-size:.82rem;
+  color:var(--ink-dim);margin:1.4rem 0 2.4rem;
+}
+.hero__styles span{color:var(--gold);margin:0 .5em;}
+.hero__actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+.hero__fade{position:absolute;bottom:0;left:0;right:0;height:160px;background:linear-gradient(to bottom, transparent, var(--bg));pointer-events:none;}
+
+.btn{
+  font-family:var(--sans-ui);font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;
+  padding:.95rem 1.8rem;border-radius:2px;display:inline-flex;align-items:center;gap:.6rem;
+  transition:transform .2s ease, box-shadow .2s ease, background .2s, color .2s;
+  border:1px solid transparent;
+}
+.btn--primary{background:var(--gold);color:#181209;box-shadow:0 12px 30px -12px rgba(201,164,76,.5);}
+.btn--primary:hover{transform:translateY(-2px);box-shadow:0 16px 34px -12px rgba(201,164,76,.65);}
+.btn--ghost{border-color:var(--hairline);color:var(--ink-dim);}
+.btn--ghost:hover{border-color:var(--gold);color:var(--gold-soft);}
+.btn--lg{padding:1.15rem 2.4rem;font-size:.88rem;}
+.btn__icon{width:18px;height:18px;fill:currentColor;}
+
+/* ---------- STRIP ---------- */
+.strip{
+  max-width:1180px;margin:0 auto;padding:4.5rem 1.5rem;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem;
+  border-bottom:1px solid var(--hairline);
+}
+.strip__item{opacity:0;transform:translateY(16px);transition:opacity .6s ease, transform .6s ease;}
+.strip__item.is-visible{opacity:1;transform:none;}
+.strip__num{font-family:var(--serif-display);color:var(--gold);font-size:1rem;letter-spacing:.15em;display:block;margin-bottom:.8rem;}
+.strip__item h3{font-size:1.15rem;margin-bottom:.5rem;}
+.strip__item p{color:var(--ink-dim);font-size:.98rem;margin:0;}
+
+/* ---------- CATEGORY ---------- */
+.category{max-width:1240px;margin:0 auto;padding:5rem 1.5rem 2rem;}
+.category__head{max-width:640px;margin:0 auto 3rem;text-align:center;opacity:0;transform:translateY(16px);transition:opacity .6s ease, transform .6s ease;}
+.category__head.is-visible{opacity:1;transform:none;}
+.category__head h2{font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:.7rem;}
+.category__head p{color:var(--ink-dim);font-size:1.02rem;margin:0;}
+
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.8rem;}
+
+.card{
+  background:linear-gradient(160deg, var(--bg-card), var(--bg-alt));
+  border:1px solid var(--hairline);
+  border-radius:2px;
+  overflow:hidden;
+  position:relative;
+  display:flex;flex-direction:column;
+  box-shadow:var(--shadow);
+  opacity:0;transform:translateY(18px);
+  transition:opacity .6s ease, transform .6s ease, border-color .3s ease;
+}
+.card.is-visible{opacity:1;transform:none;}
+.card:hover{border-color:var(--gold-deep);}
+.card--feature{grid-column:span 1;}
+@media(min-width:860px){
+  .card--feature{grid-column:span 2;}
+  .card--feature .card__gallery{aspect-ratio:16/9;}
+}
+
+.card__gallery{display:grid;background:#000;position:relative;}
+.card__gallery--single{grid-template-columns:1fr;aspect-ratio:4/5;}
+.card__gallery--double{grid-template-columns:1fr 1fr;aspect-ratio:4/5;}
+.card__gallery--triple{grid-template-columns:1fr 1fr 1fr;aspect-ratio:4/5;}
+.card__gallery img{width:100%;height:100%;object-fit:cover;object-position:center;filter:saturate(1.02) contrast(1.03);transition:transform .5s ease;}
+.card__gallery img:hover{transform:scale(1.045);}
+.card__gallery::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  box-shadow:inset 0 0 40px rgba(0,0,0,.55);
+}
+
+.card__body{padding:2.2rem 1.6rem 1.8rem;position:relative;flex:1;display:flex;flex-direction:column;}
+.card__medallion{
+  position:absolute;top:-42px;right:1.4rem;width:84px;height:84px;
+  display:flex;align-items:center;justify-content:center;
+}
+.medallion-ring{position:absolute;inset:0;width:100%;height:100%;}
+.medallion-ring circle{fill:none;stroke:var(--gold);}
+.medallion-ring circle:first-child{stroke-width:1.4;fill:var(--bg);}
+.medallion-ring circle:last-child{stroke-width:.7;opacity:.7;}
+.medallion-price{position:relative;z-index:1;text-align:center;font-family:var(--sans-ui);color:var(--gold-soft);}
+.price-val{display:block;font-size:.92rem;font-weight:600;letter-spacing:.01em;}
+.price-val--multi{font-size:.56rem;line-height:1.35;letter-spacing:.02em;padding:0 6px;font-weight:500;}
+
+.card__title{font-size:1.28rem;color:var(--ink);margin:1.6rem 0 1rem;padding-right:70px;}
+.card__specs{margin-bottom:1.5rem;flex:1;}
+.card__specs li{
+  position:relative;padding-left:1.1rem;margin-bottom:.55rem;
+  color:var(--ink-dim);font-size:.95rem;line-height:1.5;
+}
+.card__specs li::before{content:"✦";position:absolute;left:0;top:.05em;color:var(--gold-deep);font-size:.7em;}
+.card__cta{
+  align-self:flex-start;font-family:var(--sans-ui);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--gold);border-bottom:1px solid var(--gold-deep);padding-bottom:3px;transition:color .2s,border-color .2s;
+}
+.card__cta:hover{color:var(--gold-soft);border-color:var(--gold);}
+
+/* ---------- PAYMENT ---------- */
+.payment{padding:5rem 1.5rem;background:var(--bg-alt);border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);}
+.payment__frame{max-width:800px;margin:0 auto;text-align:center;}
+.payment__frame h2{font-size:clamp(1.5rem,3vw,2rem);margin-bottom:2.4rem;}
+.payment__grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;text-align:left;}
+.payment__grid h4{font-family:var(--sans-ui);text-transform:uppercase;letter-spacing:.14em;font-size:.82rem;color:var(--gold);margin:0 0 .9rem;}
+.payment__grid li{position:relative;padding-left:1.1rem;margin-bottom:.6rem;color:var(--ink-dim);font-size:.98rem;}
+.payment__grid li::before{content:"—";position:absolute;left:0;color:var(--gold-deep);}
+
+/* ---------- FINAL CTA ---------- */
+.final-cta{
+  position:relative;text-align:center;padding:6.5rem 1.5rem;
+  background:radial-gradient(ellipse at 50% 0%, rgba(122,26,34,.22), transparent 60%), var(--bg);
+  overflow:hidden;
+}
+.final-cta h2{font-size:clamp(1.7rem,3.6vw,2.5rem);margin-bottom:1rem;}
+.final-cta p{color:var(--ink-dim);max-width:520px;margin:0 auto 2.4rem;font-size:1.05rem;}
+.final-cta__handle{margin-top:2.2rem;}
+.ig-link{
+  display:inline-flex;align-items:center;gap:.55rem;font-family:var(--sans-ui);
+  letter-spacing:.05em;color:var(--ink-dim);font-size:.92rem;transition:color .2s;
+}
+.ig-link:hover{color:var(--gold-soft);}
+.ig-icon{width:20px;height:20px;fill:currentColor;}
+
+/* ---------- FOOTER ---------- */
+.footer{padding:3rem 1.5rem 4rem;text-align:center;color:var(--ink-faint);font-family:var(--sans-ui);font-size:.8rem;}
+.footer p{margin:.3rem 0;}
+.footer__fine{max-width:520px;margin:.5rem auto 0;line-height:1.6;}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:860px){
+  .nav__links{display:none;}
+  .nav__cta{display:none;}
+  .nav__burger{display:flex;}
+  .nav__mobile.is-open{display:flex;}
+  .strip{grid-template-columns:1fr;gap:2.2rem;}
+  .payment__grid{grid-template-columns:1fr;gap:2rem;}
+  .hero__ornament{width:70px;height:70px;}
+  .card--feature{grid-column:span 1;}
+}
+@media(max-width:480px){
+  body{font-size:16.5px;}
+  .hero{padding-top:5.5rem;}
+  .card__title{padding-right:0;}
+  .card__medallion{position:static;margin-bottom:1rem;width:72px;height:72px;}
+}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  .strip__item,.category__head,.card{transition:none;opacity:1;transform:none;}
+}
+
+</style>
+</head>
+<body>
+
+<div class="noise" aria-hidden="true"></div>
+
+<header class="nav" id="top">
+  <div class="nav__inner">
+    <a href="#top" class="nav__brand">
+      <span class="nav__brand-mark">✦</span>
+      <span class="nav__brand-text">Jaine&nbsp;Schaper <em>Ateliê</em></span>
+    </a>
+    <nav class="nav__links"><a href="#cat-laminas">Lâminas Rituais</a><a href="#cat-tacas">Taças & Cálices</a><a href="#cat-altar">Luz do Altar</a><a href="#cat-caldeiroes">Caldeirões & Assentamentos</a><a href="#cat-especiais">Peças Especiais</a></nav>
+    <a class="nav__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20pela%20pagina%20do%20catalogo%20e%20queria%20saber%20mais%20sobre%20os%20pedidos." target="_blank" rel="noopener">WhatsApp</a>
+    <button class="nav__burger" id="burger" aria-label="Abrir menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="nav__mobile" id="mobileNav"><a href="#cat-laminas">Lâminas Rituais</a><a href="#cat-tacas">Taças & Cálices</a><a href="#cat-altar">Luz do Altar</a><a href="#cat-caldeiroes">Caldeirões & Assentamentos</a><a href="#cat-especiais">Peças Especiais</a>
+    <a class="nav__cta nav__cta--mobile" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20pela%20pagina%20do%20catalogo%20e%20queria%20saber%20mais%20sobre%20os%20pedidos." target="_blank" rel="noopener">Pedir no WhatsApp</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero__ornament hero__ornament--tl" aria-hidden="true"><svg viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 4 Q4 40 40 40" stroke="currentColor" stroke-width="1"/>
+<path d="M4 4 Q40 4 40 40" stroke="currentColor" stroke-width="1"/>
+<circle cx="4" cy="4" r="2.4" fill="currentColor"/>
+<path d="M14 4c8 2 12 8 10 16-2 6-9 8-13 3" stroke="currentColor" stroke-width="1"/>
+<path d="M4 14c2 8 8 12 16 10 6-2 8-9 3-13" stroke="currentColor" stroke-width="1"/>
+<circle cx="40" cy="40" r="1.6" fill="currentColor"/>
+</svg></div>
+  <div class="hero__ornament hero__ornament--tr" aria-hidden="true"><svg viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 4 Q4 40 40 40" stroke="currentColor" stroke-width="1"/>
+<path d="M4 4 Q40 4 40 40" stroke="currentColor" stroke-width="1"/>
+<circle cx="4" cy="4" r="2.4" fill="currentColor"/>
+<path d="M14 4c8 2 12 8 10 16-2 6-9 8-13 3" stroke="currentColor" stroke-width="1"/>
+<path d="M4 14c2 8 8 12 16 10 6-2 8-9 3-13" stroke="currentColor" stroke-width="1"/>
+<circle cx="40" cy="40" r="1.6" fill="currentColor"/>
+</svg></div>
+  <div class="hero__ornament hero__ornament--bl" aria-hidden="true"><svg viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 4 Q4 40 40 40" stroke="currentColor" stroke-width="1"/>
+<path d="M4 4 Q40 4 40 40" stroke="currentColor" stroke-width="1"/>
+<circle cx="4" cy="4" r="2.4" fill="currentColor"/>
+<path d="M14 4c8 2 12 8 10 16-2 6-9 8-13 3" stroke="currentColor" stroke-width="1"/>
+<path d="M4 14c2 8 8 12 16 10 6-2 8-9 3-13" stroke="currentColor" stroke-width="1"/>
+<circle cx="40" cy="40" r="1.6" fill="currentColor"/>
+</svg></div>
+  <div class="hero__ornament hero__ornament--br" aria-hidden="true"><svg viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 4 Q4 40 40 40" stroke="currentColor" stroke-width="1"/>
+<path d="M4 4 Q40 4 40 40" stroke="currentColor" stroke-width="1"/>
+<circle cx="4" cy="4" r="2.4" fill="currentColor"/>
+<path d="M14 4c8 2 12 8 10 16-2 6-9 8-13 3" stroke="currentColor" stroke-width="1"/>
+<path d="M4 14c2 8 8 12 16 10 6-2 8-9 3-13" stroke="currentColor" stroke-width="1"/>
+<circle cx="40" cy="40" r="1.6" fill="currentColor"/>
+</svg></div>
+
+  <div class="hero__content">
+    <img src="assets/img/logo-mark.jpg" alt="Símbolo do Ateliê Jaine Schaper — tridente e rosas" class="hero__mark">
+    <p class="hero__eyebrow">Arte ritual autoral desde 2023</p>
+    <h1 class="hero__title">Ossos e ferramentas<br>para Exu &amp; Pombogira</h1>
+    <p class="hero__styles">Rococó <span>•</span> Barroco <span>•</span> Vitoriano</p>
+    <div class="hero__actions">
+      <a class="btn btn--primary" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20pela%20pagina%20do%20catalogo%20e%20queria%20saber%20mais%20sobre%20os%20pedidos." target="_blank" rel="noopener">Fazer um pedido no WhatsApp</a>
+      <a class="btn btn--ghost" href="#cat-laminas">Ver o catálogo</a>
+    </div>
+  </div>
+  <div class="hero__fade"></div>
+</section>
+
+<section class="strip">
+  <div class="strip__item">
+    <span class="strip__num">I</span>
+    <h3>Peça única</h3>
+    <p>Cada objeto é esculpido à mão, do osso à última rosa em biscuit. Não existem duas peças idênticas.</p>
+  </div>
+  <div class="strip__item">
+    <span class="strip__num">II</span>
+    <h3>Valor por categoria</h3>
+    <p>As peças têm valor fixo por categoria, mas podem ser personalizadas. Alterações no valor somente com mudança de tamanho ou adição de pedras naturais.</p>
+  </div>
+  <div class="strip__item">
+    <span class="strip__num">III</span>
+    <h3>Envio para todo o Brasil</h3>
+    <p>Entregamos para todo o Brasil e internacionalmente. Frete calculado de acordo com a região e o método escolhido.</p>
+  </div>
+</section>
+
+<main>
+
+  <section class="category" id="cat-laminas">
+    <div class="category__head">
+      <span class="eyebrow">Coleção</span>
+      <h2>Lâminas Rituais</h2>
+      <p>Punhais, adagas, facas e navalhas — aço afiado, cabo esculpido à mão.</p>
+    </div>
+    <div class="card-grid">
+    <article class="card" id="p-punhal-22">
+      <div class="card__gallery card__gallery--double"><img src="assets/img/punhal-22-1.jpg" alt="Punhal Ritual 22cm" loading="lazy"><img src="assets/img/punhal-22-2.jpg" alt="Punhal Ritual 22cm" loading="lazy"></div>
+      <div class="card__body">
+        <div class="card__medallion" aria-hidden="true">
+          <svg viewBox="0 0 120 120" class="medallion-ring">
+            <circle cx="60" cy="60" r="56"/>
+            <circle cx="60" cy="60" r="49"/>
+          </svg>
+          <div class="medallion-price"><span class="price-val">R$ 430,00</span></div>
+        </div>
+        <h3 class="card__title">Punhal Ritual 22cm</h3>
+        <ul class="card__specs"><li>Aço afiado para perfuração (não possui corte)</li><li>Comprimento total 22 a 23&nbsp;cm · lâmina 11&nbsp;cm</li><li>Decoração em biscuit, acabamento em resina</li><li>Bainha em veludo para proteção da lâmina</li></ul>
+        <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Punhal%20Ritual%2022cm." target="_blank" rel="noopener">Pedir no WhatsApp</a>
+      </div>
+    </article>
+    <article class="card" id="p-punhal-30">
+      <div class="card__gallery card__gallery--double"><img src="assets/img/punhal-30-1.jpg" alt="Punhal Ritual 30cm" loading="lazy"><img src="assets/img/punhal-30-2.jpg" alt="Punhal Ritual 30cm" loading="lazy"></div>
+      <div class="card__body">
+        <div class="card__medallion" aria-hidden="true">
+          <svg viewBox="0 0 120 120" class="medallion-ring">
+            <circle cx="60" cy="60" r="56"/>
+            <circle cx="60" cy="60" r="49"/>
+          </svg>
+          <div class="medallion-price"><span class="price-val">R$ 580,00</span></div>
+        </div>
+        <h3 class="card__title">Punhal Ritual 30cm</h3>
+        <ul class="card__specs"><li>Aço afiado para corte, lâmina de fio duplo</li><li>Comprimento total 30&nbsp;cm · lâmina 15&nbsp;cm</li><li>Decoração em biscuit, acabamento em resina</li><li>Bainha em veludo para proteção da lâmina</li></ul>
+        <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Punhal%20Ritual%2030cm." target="_blank" rel="noopener">Pedir no WhatsApp</a>
+      </div>
+    </article>
+    <article class="card" id="p-adaga-osso-lamina">
+      <div class="card__gallery card__gallery--single"><img src="assets/img/adaga-osso-lamina-1.jpg" alt="Adaga Lâmina de Osso" loading="lazy"></div>
+      <div class="card__body">
+        <div class="card__medallion" aria-hidden="true">
+          <svg viewBox="0 0 120 120" class="medallion-ring">
+            <circle cx="60" cy="60" r="56"/>
+            <circle cx="60" cy="60" r="49"/>
+          </svg>
+          <div class="medallion-price"><span class="price-val">R$ 580,00</span></div>
+        </div>
+        <h3 class="card__title">Adaga Lâmina de Osso</h3>
+        <ul class="card__specs"><li>Lâmina em osso natural (não possui corte)</li><li>Cabo decorado em biscuit, pentagrama e pedra</li><li>Peça artesanal em material natural — pequenas variações de tom e formato fazem parte da peça</li></ul>
+        <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Adaga%20L%C3%A2mina%20de%20Osso." target="_blank" rel="noopener">Pedir no WhatsApp</a>
+      </div>
+    </article>
+    <article class="card" id="p-adaga-cabo-osso">
+      <div class="card__gallery card__gallery--single"><img src="assets/img/adaga-cabo-osso-1.jpg" alt="Adaga Cabo de Osso" loading="lazy"></div>
+      <div class="card__body">
+        <div class="card__medallion" aria-hidden="true">
+          <svg viewBox="0 0 120 120" class="medallion-ring">
+            <circle cx="60" cy="60" r="56"/>
+            <circle cx="60" cy="60" r="49"/>
+          </svg>
+          <div class="medallion-price"><span class="price-val">R$ 630,00</span></div>
+        </div>
+        <h3 class="card__title">Adaga Cabo de Osso</h3>
+        <ul class="card__specs"><li>Aço afiado para corte · cabo em osso natural</li><li>Decoração em porcelana fria — caveiras e rosas</li><li>Bainha em veludo · acabamento em resina impermeável</li></ul>
+        <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Adaga%20Cabo%20de%20Osso." target="_blank" rel="noopener">Pedir no WhatsApp</a>
+      </div>
+    </article>
+    <article class="card" id="p-adaga-33cm">
+      <div class="card__gallery card__gallery--double"><img src="assets/img/adaga-33cm-1.jpg" alt="Adaga Personalizada 33cm" loading="lazy"><img src="assets/img/adaga-33cm-2.jpg" alt="Adaga Personalizada 33cm" loading="lazy"></div>
+      <div class="card__body">
+        <div class="card__medallion" aria-hidden="true">
+          <svg viewBox="0 0 120 120" class="medallion-ring">
+            <circle cx="60" cy="60" r="56"/>
+            <circle cx="60" cy="60" r="49"/>
+          </svg>
+          <div class="medallion-price"><span class="price-val">R$ 580,00</span></div>
+        </div>
+        <h3 class="card__title">Adaga Personalizada 33cm</h3>
+        <ul class="card__specs"><li>Aço afiado para corte, fio duplo</li><li>Decoração em porcelana fria — cruz, caveira ou pentagrama</li><li>Bainha em veludo · acabamento em resina impermeável</li></ul>
+        <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Adaga%20Personalizada%2033cm." target="_blank" rel="noopener">Pedir no WhatsApp</a>
+      </div>
+    </article>
+    <article class="card" id="p-facas-personalizadas">
+      <div class="card__gallery card__gallery--triple"><img src="assets/img/facas-personalizadas-1.jpg" alt="Faca Personalizada" loading="lazy"><img src="assets/img/facas-personalizadas-2.jpg" alt="Faca Personalizada" loading="lazy"><img src="assets/img/facas-personalizadas-3.jpg" alt="Faca Personalizada" loading="lazy"></div>
+      <div class="card__body">
+        <div class="card__medallion" aria-hidden="true">
+          <svg viewBox="0 0 120 120" class="medallion-ring">
+            <circle cx="60" cy="60" r="56"/>
+            <circle cx="60" cy="60" r="49"/>
+          </svg>
+          <div class="medallion-price"><span class="price-val price-val--multi">23&nbsp;cm — R$ 420,00 &nbsp;·&nbsp; 30&nbsp;cm — R$ 630,00</span></div>
+        </div>
+        <h3 class="card__title">Faca Personalizada</h3>
+        <ul class="card__specs"><li>Aço afiado para corte</li><li>Decoração em porcelana fria, rosas e pentagrama</li><li>Bainha em veludo · acabamento em resina impermeável</li></ul>
+        <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Faca%20Personalizada." target="_blank" rel="noopener">Pedir no WhatsApp</a>
+      </div>
+    </article>
+    <article class="card" id="p-navalha">
+      <div class="card__gallery card__gallery--double"><img src="assets/img/navalha-1.jpg" alt="Navalha Personalizada" loading="lazy"><img src="assets/img/navalha-2.jpg" alt="Navalha Personalizada" loading="lazy"></div>
+      <div class="card__body">
+        <div class="card__medallion" aria-hidden="true">
+          <svg viewBox="0 0 120 120" class="medallion-ring">
+            <circle cx="60" cy="60" r="56"/>
+            <circle cx="60" cy="60" r="49"/>
+          </svg>
+          <div class="medallion-price"><span class="price-val">R$ 133,00</span></div>
+        </div>
+        <h3 class="card__title">Navalha Personalizada</h3>
+        <ul class="card__specs"><li>Decorada em biscuit</li><li>Acabamento em resina</li><li>Cabo entalhado à mão — cada peça sai diferente da outra</li></ul>
+        <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Navalha%20Personalizada." target="_blank" rel="noopener">Pedir no WhatsApp</a>
+      </div>
+    </article>
+    <article class="card" id="p-tesoura">
+      <div class="card__gallery card__gallery--double"><img src="assets/img/tesoura-1.jpg" alt="Tesoura Personalizada 22cm" loading="lazy"><img src="assets/img/tesoura-2.jpg" alt="Tesoura Personalizada 22cm" loading="lazy"></div>
+      <div class="card__body">
+        <div class="card__medallion" aria-hidden="true">
+          <svg viewBox="0 0 120 120" class="medallion-ring">
+            <circle cx="60" cy="60" r="56"/>
+            <circle cx="60" cy="60" r="49"/>
+          </svg>
+          <div class="medallion-price"><span class="price-val">R$ 265,00</span></div>
+        </div>
+        <h3 class="card__title">Tesoura Personalizada 22cm</h3>
+        <ul class="card__specs"><li>Decorada em biscuit — caveiras e pedras</li><li>Acompanha bainha com interior em veludo</li></ul>
+        <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Tesoura%20Personalizada%2022cm." target="_blank" rel="noopener">Pedir no WhatsApp</a>
+      </div>
+    </article></div>
+  </section>
+  <section class="category" id="cat-tacas">
+    <div class="category__head">
+      <span class="eyebrow">Coleção</span>
+      <h2>Taças & Cálices</h2>
+      <p>Vasilhas de oferenda em biscuit impermeabilizado, com metal e chifre natural.</p>
+    </div>
+    <div class="card-grid">
+    <article class="card" id="p-tacas-personalizadas">
+      <div class="card__gallery card__gallery--double"><img src="assets/img/tacas-personalizadas-1.jpg" alt="Taça Personalizada" loading="lazy"><img src="assets/img/tacas-personalizadas-2.jpg" alt="Taça Personalizada" loading="lazy"></div>
+      <div class="card__body">
+        <div class="card__medallion" aria-hidden="true">
+          <svg viewBox="0 0 120 120" class="medallion-ring">
+            <circle cx="60" cy="60" r="56"/>
+            <circle cx="60" cy="60" r="49"/>
+          </svg>
+          <div class="medallion-price"><span class="price-val">R$ 340,00</span></div>
+        </div>
+        <h3 class="card__title">Taça Personalizada</h3>
+        <ul class="card__specs"><li>Capacidade 490&nbsp;ml</li><li>Biscuit impermeabilizado com verniz de resina</li><li>Coroa, rosas e pedras — combinadas com o seu pedido</li></ul>
+        <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Ta%C3%A7a%20Personalizada." target="_blank" rel="noopener">Pedir no WhatsApp</a>
+      </div>
+    </article>
+    <article class="card" id="p-tacas-chifre-boi">
+      <div class="card__gallery card__gallery--single"><img src="assets/img/tacas-chifre-boi-1.jpg" alt="Taça Chifre de Boi" loading="lazy"></div>
+      <div class="card__body">
+        <div class="card__medallion" aria-hidden="true">
+          <svg viewBox="0 0 120 120" class="medallion-ring">
+            <circle cx="60" cy="60" r="56"/>
+            <circle cx="60" cy="60" r="49"/>
+          </svg>
+          <div class="medallion-price"><span class="price-val">R$ 420,00</span></div>
+        </div>
+        <h3 class="card__title">Taça Chifre de Boi</h3>
+        <ul class="card__specs"><li>Chifre bovino natural, impermeabilizado</li><li>Decorada em biscuit — rosas negras e pedras</li><li>Peça natural: variações de tom e curvatura são esperadas</li></ul>
+        <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Ta%C3%A7a%20Chifre%20de%20Boi." target="_blank" rel="noopener">Pedir no WhatsApp</a>
+      </div>
+    </article></div>
+  </section>
+  <section class="category" id="cat-altar">
+    <div class="category__head">
+      <span class="eyebrow">Coleção</span>
+      <h2>Luz do Altar</h2>
+      <p>Castiçais, porta-velas e ofertórios para sustentar a chama do trabalho.</p>
+    </div>
+    <div class="card-grid">
+    <article class="card" id="p-castical-3velas">
+      <div class="card__gallery card__gallery--double"><img src="assets/img/castical-3velas-1.jpg" alt="Castiçal com 3 Suportes de Velas" loading="lazy"><img src="assets/img/castical-3velas-2.jpg" alt="Castiçal com 3 Suportes de Velas" loading="lazy"></div>
+      <div class="card__body">
+        <div class="card__medallion" aria-hidden="true">
+          <svg viewBox="0 0 120 120" class="medallion-ring">
+            <circle cx="60" cy="60" r="56"/>
+            <circle cx="60" cy="60" r="49"/>
+          </svg>
+          <div class="medallion-price"><span class="price-val">R$ 480,00</span></div>
+        </div>
+        <h3 class="card__title">Castiçal com 3 Suportes de Velas</h3>
+        <ul class="card__specs"><li>Altura 30&nbsp;cm</li><li>Suporte para velas em alumínio</li><li>Caveiras, correntes e cruzes em biscuit</li></ul>
+        <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Casti%C3%A7al%20com%203%20Suportes%20de%20Velas." target="_blank" rel="noopener">Pedir no WhatsApp</a>
+      </div>
+    </article>
+    <article class="card" id="p-porta-velas-baixa">
+      <div class="card__gallery card__gallery--double"><img src="assets/img/porta-velas-baixa-1.jpg" alt="Porta-Velas Base Baixa" loading="lazy"><img src="assets/img/porta-velas-baixa-2.jpg" alt="Porta-Velas Base Baixa" loading="lazy"></div>
+      <div class="card__body">
+        <div class="card__medallion" aria-hidden="true">
+          <svg viewBox="0 0 120 120" class="medallion-ring">
+            <circle cx="60" cy="60" r="56"/>
+            <circle cx="60" cy="60" r="49"/>
+          </svg>
+          <div class="medallion-price"><span class="price-val">R$ 335,00</span></div>
+        </div>
+        <h3 class="card__title">Porta-Velas Base Baixa</h3>
+        <ul class="card__specs"><li>Base em metal com decoração em biscuit</li><li>Proteção em vidro para a vela</li><li>Acabamento em verniz</li></ul>
+        <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Porta-Velas%20Base%20Baixa." target="_blank" rel="noopener">Pedir no WhatsApp</a>
+      </div>
+    </article>
+    <article class="card" id="p-porta-velas-alta">
+      <div class="card__gallery card__gallery--single"><img src="assets/img/porta-velas-alta-1.jpg" alt="Porta-Velas Base Alta" loading="lazy"></div>
+      <div class="card__body">
+        <div class="card__medallion" aria-hidden="true">
+          <svg viewBox="0 0 120 120" class="medallion-ring">
+            <circle cx="60" cy="60" r="56"/>
+            <circle cx="60" cy="60" r="49"/>
+          </svg>
+          <div class="medallion-price"><span class="price-val">R$ 480,00</span></div>
+        </div>
+        <h3 class="card__title">Porta-Velas Base Alta</h3>
+        <ul class="card__specs"><li>Base em metal com decoração em biscuit</li><li>Proteção em vidro para a vela</li><li>Acabamento em verniz</li></ul>
+        <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Porta-Velas%20Base%20Alta." target="_blank" rel="noopener">Pedir no WhatsApp</a>
+      </div>
+    </article>
+    <article class="card" id="p-casticais-palito">
+      <div class="card__gallery card__gallery--double"><img src="assets/img/casticais-palito-1.jpg" alt="Castiçal para Velas Palito" loading="lazy"><img src="assets/img/casticais-palito-2.jpg" alt="Castiçal para Velas Palito" loading="lazy"></div>
+      <div class="card__body">
+        <div class="card__medallion" aria-hidden="true">
+          <svg viewBox="0 0 120 120" class="medallion-ring">
+            <circle cx="60" cy="60" r="56"/>
+            <circle cx="60" cy="60" r="49"/>
+          </svg>
+          <div class="medallion-price"><span class="price-val">R$ 280,00</span></div>
+        </div>
+        <h3 class="card__title">Castiçal para Velas Palito</h3>
+        <ul class="card__specs"><li>Suporte em alumínio</li><li>Decoração em biscuit — rosas e pedras</li><li>Ideal para velas palito</li></ul>
+        <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Casti%C3%A7al%20para%20Velas%20Palito." target="_blank" rel="noopener">Pedir no WhatsApp</a>
+      </div>
+    </article>
+    <article class="card" id="p-ofertorio-rosa">
+      <div class="card__gallery card__gallery--single"><img src="assets/img/ofertorio-rosa-1.jpg" alt="Ofertório de Rosa" loading="lazy"></div>
+      <div class="card__body">
+        <div class="card__medallion" aria-hidden="true">
+          <svg viewBox="0 0 120 120" class="medallion-ring">
+            <circle cx="60" cy="60" r="56"/>
+            <circle cx="60" cy="60" r="49"/>
+          </svg>
+          <div class="medallion-price"><span class="price-val">R$ 183,00</span></div>
+        </div>
+        <h3 class="card__title">Ofertório de Rosa</h3>
+        <ul class="card__specs"><li>Porcelana fria</li><li>Acabamento em verniz</li><li>Rosa aberta com botão, suporte para vela palito</li></ul>
+        <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Ofert%C3%B3rio%20de%20Rosa." target="_blank" rel="noopener">Pedir no WhatsApp</a>
+      </div>
+    </article></div>
+  </section>
+  <section class="category" id="cat-caldeiroes">
+    <div class="category__head">
+      <span class="eyebrow">Coleção</span>
+      <h2>Caldeirões & Assentamentos</h2>
+      <p>As peças de maior porte do ateliê — feitas sob encomenda, uma a uma.</p>
+    </div>
+    <div class="card-grid">
+    <article class="card card--feature" id="p-caldeirao-barro">
+      <div class="card__gallery card__gallery--single"><img src="assets/img/caldeirao-barro-1.jpg" alt="Caldeirão em Panela de Barro" loading="lazy"></div>
+      <div class="card__body">
+        <div class="card__medallion" aria-hidden="true">
+          <svg viewBox="0 0 120 120" class="medallion-ring">
+            <circle cx="60" cy="60" r="56"/>
+            <circle cx="60" cy="60" r="49"/>
+          </svg>
+          <div class="medallion-price"><span class="price-val price-val--multi">1&nbsp;L — R$ 870,00 &nbsp;·&nbsp; 3&nbsp;L — R$ 1.430,00</span></div>
+        </div>
+        <h3 class="card__title">Caldeirão em Panela de Barro</h3>
+        <ul class="card__specs"><li>Decoração em biscuit com acabamento em verniz</li><li>Pode conter fogo somente na parte interna</li><li>Chifres, luas e caveiras esculpidos à mão</li></ul>
+        <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Caldeir%C3%A3o%20em%20Panela%20de%20Barro." target="_blank" rel="noopener">Pedir no WhatsApp</a>
+      </div>
+    </article>
+    <article class="card card--feature" id="p-assentamento-barro">
+      <div class="card__gallery card__gallery--single"><img src="assets/img/assentamento-barro-1.jpg" alt="Assentamento — Base em Panela de Barro" loading="lazy"></div>
+      <div class="card__body">
+        <div class="card__medallion" aria-hidden="true">
+          <svg viewBox="0 0 120 120" class="medallion-ring">
+            <circle cx="60" cy="60" r="56"/>
+            <circle cx="60" cy="60" r="49"/>
+          </svg>
+          <div class="medallion-price"><span class="price-val">R$ 1.460,00</span></div>
+        </div>
+        <h3 class="card__title">Assentamento — Base em Panela de Barro</h3>
+        <ul class="card__specs"><li>Peça inteiramente trabalhada em biscuit</li><li>Cabeça de Exu, garras e vidro rubro no corpo</li><li>Acabamento em verniz</li></ul>
+        <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Assentamento%20%E2%80%94%20Base%20em%20Panela%20de%20Barro." target="_blank" rel="noopener">Pedir no WhatsApp</a>
+      </div>
+    </article>
+    <article class="card card--feature" id="p-alguidar">
+      <div class="card__gallery card__gallery--triple"><img src="assets/img/alguidar-1.jpg" alt="Alguidar Personalizado" loading="lazy"><img src="assets/img/alguidar-2.jpg" alt="Alguidar Personalizado" loading="lazy"><img src="assets/img/alguidar-3.jpg" alt="Alguidar Personalizado" loading="lazy"></div>
+      <div class="card__body">
+        <div class="card__medallion" aria-hidden="true">
+          <svg viewBox="0 0 120 120" class="medallion-ring">
+            <circle cx="60" cy="60" r="56"/>
+            <circle cx="60" cy="60" r="49"/>
+          </svg>
+          <div class="medallion-price"><span class="price-val">R$ 1.460,00</span></div>
+        </div>
+        <h3 class="card__title">Alguidar Personalizado</h3>
+        <ul class="card__specs"><li>Base em barro, decoração inteira em biscuit</li><li>Cabeça de Exu com chifres, pentagrama e presas</li><li>Acabamento em verniz</li></ul>
+        <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Alguidar%20Personalizado." target="_blank" rel="noopener">Pedir no WhatsApp</a>
+      </div>
+    </article>
+    <article class="card" id="p-ofertorio-cinzas">
+      <div class="card__gallery card__gallery--triple"><img src="assets/img/ofertorio-cinzas-1.jpg" alt="Ofertório com Suporte para Cinzas" loading="lazy"><img src="assets/img/ofertorio-cinzas-2.jpg" alt="Ofertório com Suporte para Cinzas" loading="lazy"><img src="assets/img/ofertorio-cinzas-3.jpg" alt="Ofertório com Suporte para Cinzas" loading="lazy"></div>
+      <div class="card__body">
+        <div class="card__medallion" aria-hidden="true">
+          <svg viewBox="0 0 120 120" class="medallion-ring">
+            <circle cx="60" cy="60" r="56"/>
+            <circle cx="60" cy="60" r="49"/>
+          </svg>
+          <div class="medallion-price"><span class="price-val">R$ 250,00</span></div>
+        </div>
+        <h3 class="card__title">Ofertório com Suporte para Cinzas</h3>
+        <ul class="card__specs"><li>Base de metal removível para coletar as cinzas</li><li>Pentagrama, rosas e vassoura em biscuit</li><li>Facilita a limpeza e preserva a peça</li></ul>
+        <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Ofert%C3%B3rio%20com%20Suporte%20para%20Cinzas." target="_blank" rel="noopener">Pedir no WhatsApp</a>
+      </div>
+    </article></div>
+  </section>
+  <section class="category" id="cat-especiais">
+    <div class="category__head">
+      <span class="eyebrow">Coleção</span>
+      <h2>Peças Especiais</h2>
+      <p>Caixas, quartinhas e a bengala ritual — objetos de guarda e presença.</p>
+    </div>
+    <div class="card-grid">
+    <article class="card" id="p-caixa-coracao">
+      <div class="card__gallery card__gallery--double"><img src="assets/img/caixa-coracao-1.jpg" alt="Caixa Coração em MDF" loading="lazy"><img src="assets/img/caixa-coracao-2.jpg" alt="Caixa Coração em MDF" loading="lazy"></div>
+      <div class="card__body">
+        <div class="card__medallion" aria-hidden="true">
+          <svg viewBox="0 0 120 120" class="medallion-ring">
+            <circle cx="60" cy="60" r="56"/>
+            <circle cx="60" cy="60" r="49"/>
+          </svg>
+          <div class="medallion-price"><span class="price-val">R$ 530,00</span></div>
+        </div>
+        <h3 class="card__title">Caixa Coração em MDF</h3>
+        <ul class="card__specs"><li>MDF resinado, interior em veludo</li><li>Altura 10&nbsp;cm · largura 25&nbsp;cm · comprimento 22&nbsp;cm</li><li>Cruz invertida, pentagrama e cabeça de bode</li></ul>
+        <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Caixa%20Cora%C3%A7%C3%A3o%20em%20MDF." target="_blank" rel="noopener">Pedir no WhatsApp</a>
+      </div>
+    </article>
+    <article class="card" id="p-quartinha">
+      <div class="card__gallery card__gallery--double"><img src="assets/img/quartinha-1.jpg" alt="Quartinha para Altar" loading="lazy"><img src="assets/img/quartinha-2.jpg" alt="Quartinha para Altar" loading="lazy"></div>
+      <div class="card__body">
+        <div class="card__medallion" aria-hidden="true">
+          <svg viewBox="0 0 120 120" class="medallion-ring">
+            <circle cx="60" cy="60" r="56"/>
+            <circle cx="60" cy="60" r="49"/>
+          </svg>
+          <div class="medallion-price"><span class="price-val price-val--multi">30&nbsp;cm — R$ 420,00 &nbsp;·&nbsp; 15&nbsp;cm — R$ 300,00</span></div>
+        </div>
+        <h3 class="card__title">Quartinha para Altar</h3>
+        <ul class="card__specs"><li>Porcelana com detalhes em biscuit</li><li>Impermeabilizada — proteção contra umidade</li><li>Ideal para altares</li></ul>
+        <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Quartinha%20para%20Altar." target="_blank" rel="noopener">Pedir no WhatsApp</a>
+      </div>
+    </article>
+    <article class="card card--feature" id="p-bengala">
+      <div class="card__gallery card__gallery--triple"><img src="assets/img/bengala-1.jpg" alt="Bengala Ritual 90cm" loading="lazy"><img src="assets/img/bengala-2.jpg" alt="Bengala Ritual 90cm" loading="lazy"><img src="assets/img/bengala-3.jpg" alt="Bengala Ritual 90cm" loading="lazy"></div>
+      <div class="card__body">
+        <div class="card__medallion" aria-hidden="true">
+          <svg viewBox="0 0 120 120" class="medallion-ring">
+            <circle cx="60" cy="60" r="56"/>
+            <circle cx="60" cy="60" r="49"/>
+          </svg>
+          <div class="medallion-price"><span class="price-val price-val--multi">Com punhal embutido — R$ 980,00 &nbsp;·&nbsp; Sem punhal — R$ 750,00</span></div>
+        </div>
+        <h3 class="card__title">Bengala Ritual 90cm</h3>
+        <ul class="card__specs"><li>Madeira, biscuit e verniz</li><li>Coruja, caveiras, rosas e pentagrama esculpidos à mão</li><li>Punhal embutido disponível como opção</li></ul>
+        <a class="card__cta" href="https://wa.me/5519997751598?text=Ola%21%20Vim%20do%20catalogo%20do%20Atelie%20e%20quero%20pedir%3A%20Bengala%20Ritual%2090cm." target="_blank" rel="noopener">Pedir no WhatsApp</a>
+      </div>
+    </article></div>
+  </section>
+</main>
+
+<section class="payment" id="pagamento">
+  <div class="payment__frame">
+    <span class="eyebrow">Como fechar o pedido</span>
+    <h2>Formas de pagamento e envio</h2>
+    <div class="payment__grid">
+      <div>
+        <h4>Pagamento</h4>
+        <ul>
+          <li>Pix</li>
+          <li>Cartão de crédito — parcelamento disponível conforme as condições da operadora</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Envio</h4>
+        <ul>
+          <li>Entregamos para todo o Brasil e internacionalmente</li>
+          <li>Frete calculado de acordo com a região e o método escolhido</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="hero__ornament hero__ornament--tl" aria-hidden="true"><svg viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 4 Q4 40 40 40" stroke="currentColor" stroke-width="1"/>
+<path d="M4 4 Q40 4 40 40" stroke="currentColor" stroke-width="1"/>
+<circle cx="4" cy="4" r="2.4" fill="currentColor"/>
+<path d="M14 4c8 2 12 8 10 16-2 6-9 8-13 3" stroke="currentColor" stroke-width="1"/>
+<path d="M4 14c2 8 8 12 16 10 6-2 8-9 3-13" stroke="currentColor" stroke-width="1"/>
+<circle cx="40" cy="40" r="1.6" fill="currentColor"/>
+</svg></div>
+  <div class="hero__ornament hero__ornament--tr" aria-hidden="true"><svg viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 4 Q4 40 40 40" stroke="currentColor" stroke-width="1"/>
+<path d="M4 4 Q40 4 40 40" stroke="currentColor" stroke-width="1"/>
+<circle cx="4" cy="4" r="2.4" fill="currentColor"/>
+<path d="M14 4c8 2 12 8 10 16-2 6-9 8-13 3" stroke="currentColor" stroke-width="1"/>
+<path d="M4 14c2 8 8 12 16 10 6-2 8-9 3-13" stroke="currentColor" stroke-width="1"/>
+<circle cx="40" cy="40" r="1.6" fill="currentColor"/>
+</svg></div>
+  <h2>Sua peça começa com uma mensagem</h2>
+  <p>Conte o que você precisa para o seu altar, assentamento ou trabalho — Jaine responde pessoalmente cada pedido.</p>
+  <a class="btn btn--primary btn--lg" href="https://wa.me/5519997751598?text=Ola%21%20Vi%20o%20catalogo%20completo%20e%20quero%20fazer%20um%20pedido%20personalizado." target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" class="btn__icon" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.4 0-.5C10.2 9 9.7 7.8 9.5 7.3c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3 4.8 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.3.2-.6.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.3L2 22l4.8-1.5C8.3 21.5 10.1 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.7 0-3.4-.5-4.8-1.4l-.3-.2-3.2 1 1-3.1-.2-.3C3.5 14.9 3 13.5 3 12c0-5 4-9 9-9s9 4 9 9-4 9-9 9z"/></svg>
+    Chamar no WhatsApp
+  </a>
+  <div class="final-cta__handle">
+    <a href="https://www.instagram.com/jaineschaperatelier/" target="_blank" rel="noopener" class="ig-link">
+      <svg viewBox="0 0 24 24" class="ig-icon" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 2 .3 2.4.5.6.2 1 .5 1.5 1 .5.5.7.9 1 1.5.2.5.4 1.2.5 2.4.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 2-.5 2.4-.2.6-.5 1-1 1.5-.5.5-.9.7-1.5 1-.5.2-1.2.4-2.4.5-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-2-.3-2.4-.5-.6-.2-1-.5-1.5-1-.5-.5-.7-.9-1-1.5-.2-.5-.4-1.2-.5-2.4C2 15.6 2 15.2 2 12s0-3.6.1-4.9c.1-1.2.3-2 .5-2.4.2-.6.5-1 1-1.5.5-.5.9-.7 1.5-1 .5-.2 1.2-.4 2.4-.5C8.4 2.2 8.8 2.2 12 2.2zM12 7a5 5 0 100 10 5 5 0 000-10zm0 8.2a3.2 3.2 0 110-6.4 3.2 3.2 0 010 6.4zm5.2-8.4a1.2 1.2 0 100-2.4 1.2 1.2 0 000 2.4z"/></svg>
+      @jaineschaperatelier
+    </a>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>Ateliê Jaine Schaper — arte ritual autoral desde 2023.</p>
+  <p class="footer__fine">Peças artesanais, feitas sob encomenda uma a uma. Fotos meramente ilustrativas — pequenas variações fazem parte de cada peça única.</p>
+</footer>
+
+<script>
+  const burger = document.getElementById('burger');
+  const mobileNav = document.getElementById('mobileNav');
+  burger.addEventListener('click', () => {
+    const open = mobileNav.classList.toggle('is-open');
+    burger.classList.toggle('is-open', open);
+    burger.setAttribute('aria-expanded', open);
+  });
+  document.querySelectorAll('.nav__mobile a').forEach(a => {
+    a.addEventListener('click', () => {
+      mobileNav.classList.remove('is-open');
+      burger.classList.remove('is-open');
+      burger.setAttribute('aria-expanded', false);
+    });
+  });
+
+  const nav = document.querySelector('.nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('is-scrolled', window.scrollY > 40);
+  });
+
+  if ('IntersectionObserver' in window) {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-visible');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.card, .category__head, .strip__item').forEach(el => obs.observe(el));
+  }
+</script>
+</body>
+</html>
